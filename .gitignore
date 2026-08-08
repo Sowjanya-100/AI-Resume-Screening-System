@@ -1,0 +1,25 @@
+# Virtual Environment
+venv/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+
+# Streamlit
+.streamlit/
+
+# VS Code
+.vscode/
+
+# Generated Reports
+reports/
+resume_report.pdf
+
+# Uploaded Files
+uploads/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
