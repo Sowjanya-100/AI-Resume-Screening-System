@@ -22,6 +22,14 @@ SKILLS = set(
     .str.strip()
 )
 
+SKILL_ALIASES = {
+    "microsoft excel": "excel",
+    "ms excel": "excel",
+    "microsoft word": "word",
+    "ms word": "word",
+    "microsoft powerpoint": "powerpoint",
+    "ms powerpoint": "powerpoint",
+}
 
 # ============================================================
 # LOAD ROLE-SKILL MAPPING
@@ -68,7 +76,10 @@ def extract_skills(text):
 
     found_skills = []
 
-    for skill in SKILLS:
+    # Check longer skills first
+    sorted_skills = sorted(SKILLS, key=len, reverse=True)
+
+    for skill in sorted_skills:
 
         skill = skill.strip()
 
@@ -79,9 +90,12 @@ def extract_skills(text):
         )
 
         if re.search(pattern, text):
-            found_skills.append(skill.title())
 
-    return sorted(list(set(found_skills)))
+            normalized_skill = SKILL_ALIASES.get(skill, skill)
+
+            found_skills.append(normalized_skill)
+
+    return sorted(set(skill.title() for skill in found_skills))
 
 
 # ============================================================
