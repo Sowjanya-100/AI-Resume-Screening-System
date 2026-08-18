@@ -425,8 +425,6 @@ if uploaded_file:
                 with chart_col:
                     st.pyplot(chart, use_container_width=False)
         
-                plt.close(chart)
-        
             else:
                 st.info("No skill data available.")
 
