@@ -74,7 +74,7 @@ def extract_skills(text):
 
     text = text.lower()
 
-    found_skills = []
+    found_skills = set()
 
     # Check longer skills first
     sorted_skills = sorted(SKILLS, key=len, reverse=True)
@@ -91,11 +91,12 @@ def extract_skills(text):
 
         if re.search(pattern, text):
 
+            # Convert aliases to one standard name
             normalized_skill = SKILL_ALIASES.get(skill, skill)
 
-            found_skills.append(normalized_skill)
+            found_skills.add(normalized_skill)
 
-    return sorted(set(skill.title() for skill in found_skills))
+    return sorted(skill.title() for skill in found_skills)
 
 
 # ============================================================
