@@ -3,7 +3,7 @@ import streamlit as st
 import os
 from utils.pdf_reader import read_pdf
 from utils.docx_reader import read_docx
-from utils.skill_extractor import extract_skills
+from utils.skill_extractor import extract_skills, extract_jd_skills
 from utils.matcher import calculate_match
 from utils.similarity import calculate_similarity
 from utils.report_generator import generate_report
@@ -173,8 +173,10 @@ if uploaded_file:
 
         # Extract Skills
         resume_skills = extract_skills(text)
-        jd_skills = extract_skills(job_description)
-
+        
+        # Extract JD skills
+        # Uses explicit skills first, then role-based skills if no explicit skills are found
+        jd_skills = extract_jd_skills(job_description)
 
         # Calculate Match
         match, matched, missing = calculate_match(
