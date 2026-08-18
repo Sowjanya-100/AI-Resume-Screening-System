@@ -152,9 +152,15 @@ def extract_jd_skills(text):
 
     inferred_skills = ROLE_SKILLS.get(role_key, set())
 
+    normalized_skills = set()
+    
+    for skill in inferred_skills:
+        normalized_skill = SKILL_ALIASES.get(skill, skill)
+        normalized_skills.add(normalized_skill)
+    
     return sorted(
         skill.title()
-        for skill in inferred_skills
+        for skill in normalized_skills
     )
 
 
