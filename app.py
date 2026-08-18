@@ -214,10 +214,21 @@ if uploaded_file:
         )
 
         # Recommendation
-        if missing:
-            recommendation = "Learn " + ", ".join(missing)
+        
+
+        if matched and not missing:
+            recommendation = ( "Excellent! Your resume matches the identified requirements in the job description." )
+
+        elif matched and missing:
+            recommendation = ("Your resume partially matches the job description. Consider improving the following missing skills: "+ ", ".join(missing))
+
+        elif not matched and missing:
+            recommendation = ("Your resume does not currently match the identified skills in the job description. Consider developing: "+ ", ".join(missing))
+
         else:
-            recommendation = "Excellent! Your resume matches the job description."
+            recommendation = ("No specific skills were identified for comparison in the job description. A skill-based match cannot be determined from 
+            the available requirements.")
+
 
         # Dashboard Metrics
 
