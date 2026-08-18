@@ -1,0 +1,96 @@
+Role,Skill
+Data Analyst,SQL
+Data Analyst,Excel
+Data Analyst,Python
+Data Analyst,Data Analysis
+Data Analyst,Statistics
+Data Analyst,Pandas
+Data Analyst,Power BI
+Data Analyst,Tableau
+Data Analyst,Data Visualization
+Data Analyst,NumPy
+Data Analyst,Reporting
+Data Analyst,Microsoft Excel
+Customer Support Voice,Customer Support
+Customer Support Voice,Customer Service
+Customer Support Voice,Communication
+Customer Support Voice,Verbal Communication
+Customer Support Voice,Active Listening
+Customer Support Voice,Customer Handling
+Customer Support Voice,Call Handling
+Customer Support Voice,Problem Solving
+Customer Support Voice,Voice Process
+Customer Support Voice,International Customer Support
+Customer Support Voice,International Voice Process
+Customer Support Voice,BPO
+Customer Support Voice,Call Center
+Software Developer,Python
+Software Developer,Java
+Software Developer,C++
+Software Developer,JavaScript
+Software Developer,Data Structures
+Software Developer,Algorithms
+Software Developer,Git
+Software Developer,GitHub
+Software Developer,Problem Solving
+Software Developer,SQL
+Software Developer,APIs
+Web Developer,HTML
+Web Developer,CSS
+Web Developer,JavaScript
+Web Developer,React
+Web Developer,Node.js
+Web Developer,Git
+Web Developer,GitHub
+Web Developer,Responsive Design
+Python Developer,Python
+Python Developer,SQL
+Python Developer,Git
+Python Developer,APIs
+Python Developer,Data Structures
+Python Developer,Flask
+Python Developer,Django
+Python Developer,Problem Solving
+Salesforce Developer,Salesforce
+Salesforce Developer,Apex
+Salesforce Developer,SOQL
+Salesforce Developer,Lightning
+Salesforce Developer,Flows
+Salesforce Developer,Salesforce CRM
+Cloud Engineer,AWS
+Cloud Engineer,Azure
+Cloud Engineer,Cloud Computing
+Cloud Engineer,Linux
+Cloud Engineer,Networking
+Cloud Engineer,Docker
+Cloud Engineer,Kubernetes
+Cloud Engineer,Git
+Data Scientist,Python
+Data Scientist,SQL
+Data Scientist,Statistics
+Data Scientist,Machine Learning
+Data Scientist,Pandas
+Data Scientist,NumPy
+Data Scientist,Scikit-learn
+Data Scientist,Data Analysis
+Machine Learning Engineer,Python
+Machine Learning Engineer,Machine Learning
+Machine Learning Engineer,Deep Learning
+Machine Learning Engineer,TensorFlow
+Machine Learning Engineer,PyTorch
+Machine Learning Engineer,Scikit-learn
+Machine Learning Engineer,NumPy
+Machine Learning Engineer,Pandas
+Cybersecurity Analyst,Cybersecurity
+Cybersecurity Analyst,Network Security
+Cybersecurity Analyst,Linux
+Cybersecurity Analyst,Ethical Hacking
+Cybersecurity Analyst,Threat Detection
+Cybersecurity Analyst,Incident Response
+IT Support,Technical Support
+IT Support,Customer Support
+IT Support,Windows
+IT Support,Linux
+IT Support,Networking
+IT Support,Troubleshooting
+IT Support,Problem Solving
