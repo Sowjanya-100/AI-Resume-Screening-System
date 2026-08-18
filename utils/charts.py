@@ -5,7 +5,7 @@ def create_pie_chart(matched, missing):
     labels = ["Matched", "Missing"]
     sizes = [len(matched), len(missing)]
 
-    fig, ax = plt.subplots(figsize=(2.4, 1.9))
+    fig, ax = plt.subplots(figsize=(2.4, 1.3))
 
     ax.pie(
         sizes,
