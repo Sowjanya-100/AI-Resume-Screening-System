@@ -421,12 +421,12 @@ if uploaded_file:
         
                 st.pyplot(
                     chart,
-                    use_container_width=True
+                    use_container_width=False
                 )
             else:
                 st.info("No skill data available.")
         
-        st.markdown("---")
+            st.markdown("---")
 
        
         # AI Feedback Summary
