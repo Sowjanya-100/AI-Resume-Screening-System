@@ -226,8 +226,8 @@ if uploaded_file:
             recommendation = ("Your resume does not currently match the identified skills in the job description. Consider developing: "+ ", ".join(missing))
 
         else:
-            recommendation = ("No specific skills were identified for comparison in the job description. A skill-based match cannot be determined from 
-            the available requirements.")
+            recommendation = ("No specific skills were identified for comparison in the job description. A skill-based match cannot be determined from the available requirements.")
+            
 
 
         # Dashboard Metrics
