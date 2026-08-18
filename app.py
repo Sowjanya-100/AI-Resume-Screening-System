@@ -1,13 +1,5 @@
+
 import streamlit as st
-import sys
-import importlib.util
-
-st.write("Python version:", sys.version)
-st.write("PyPDF2 installed:", importlib.util.find_spec("PyPDF2"))
-
-from utils.pdf_reader import read_pdf
-from utils.docx_reader import read_docx
-#import streamlit as st
 import os
 from utils.pdf_reader import read_pdf
 from utils.docx_reader import read_docx
