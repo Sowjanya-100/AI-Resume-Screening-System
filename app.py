@@ -348,27 +348,67 @@ if uploaded_file:
         with left:
 
             skill_col1, skill_col2 = st.columns(2)
-
+        
             with skill_col1:
-
+        
                 st.subheader("✅ Matched Skills")
-
+        
                 if matched:
-                    for skill in matched:
-                        st.success(skill)
+        
+                    matched_html = "".join(
+                        f"<div style='margin-bottom:6px;'>✔️ {skill}</div>"
+                        for skill in matched
+                    )
+        
+                    st.markdown(
+                        f"""
+                        <div style="
+                            max-height: 140px;
+                            overflow-y: auto;
+                            padding: 10px 14px;
+                            border: 1px solid #ddd;
+                            border-radius: 8px;
+                        ">
+                            {matched_html}
+                        </div>
+                        """,
+                        unsafe_allow_html=True
+                    )
+        
                 else:
                     st.info("No Matched Skills")
-
+        
+        
             with skill_col2:
-
+        
                 st.subheader("❌ Missing Skills")
-
+        
                 if missing:
-                    for skill in missing:
-                        st.error(skill)
+        
+                    missing_html = "".join(
+                        f"<div style='margin-bottom:6px;'>❌ {skill}</div>"
+                        for skill in missing
+                    )
+        
+                    st.markdown(
+                        f"""
+                        <div style="
+                            max-height: 140px;
+                            overflow-y: auto;
+                            padding: 10px 14px;
+                            border: 1px solid #ddd;
+                            border-radius: 8px;
+                        ">
+                            {missing_html}
+                        </div>
+                        """,
+                        unsafe_allow_html=True
+                    )
+        
                 else:
                     st.success("No Missing Skills")
-
+        
+        
             st.subheader("💡 Recommendation")
             st.info(recommendation)
 
