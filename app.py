@@ -372,12 +372,14 @@ if uploaded_file:
 
         with right:
 
-            st.markdown("## 📊 Skill Distribution")
+            # 📊 Skill Distribution
+            if matched and missing:
+                st.markdown("## 📊 Skill Distribution")
 
-            chart = create_pie_chart(matched, missing)
-            st.pyplot(chart, use_container_width=True)
+                chart = create_pie_chart(matched, missing)
+                st.pyplot(chart, use_container_width=True)
 
-        st.markdown("---")
+                st.markdown("---")
 
        
         # AI Feedback Summary
