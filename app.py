@@ -417,16 +417,18 @@ if uploaded_file:
             st.markdown("## 📊 Skill Distribution")
         
             if matched or missing:
+        
                 chart = create_pie_chart(matched, missing)
         
-                st.pyplot(
-                    chart,
-                    use_container_width=False
-                )
+                spacer, chart_col = st.columns([0.35, 1])
+        
+                with chart_col:
+                    st.pyplot(chart, use_container_width=False)
+        
+                plt.close(chart)
+        
             else:
                 st.info("No skill data available.")
-        
-            st.markdown("---")
 
        
         # AI Feedback Summary
