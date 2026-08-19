@@ -156,13 +156,20 @@ hr {
 """, unsafe_allow_html=True)
 
 st.markdown("""
-<h1 style='text-align:center;color:#2563EB;'>
-📄 AI Resume Screening System
-</h1>
+<div style="text-align:center;">
+    <h1 style="color:#2563EB;">
+        📄 AI Resume Screening System
+    </h1>
 
-<h4 style='text-align:center;color:gray;'>
-Smart Resume Analysis using AI & ATS Scoring
-</h4>
+    <div style="
+        color: var(--text-color);
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 25px;
+    ">
+        Smart Resume Analysis using AI & ATS Scoring
+    </div>
+</div>
 """, unsafe_allow_html=True)
 
 st.markdown("---")
