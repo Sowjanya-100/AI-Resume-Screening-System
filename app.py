@@ -424,7 +424,8 @@ if uploaded_file:
         
                 with chart_col:
                     st.pyplot(chart, use_container_width=False)
-        
+            elif matched and not missing:
+                st.success("🎯 100% Skill Match")
             else:
                 st.info("No skill data available.")
 
