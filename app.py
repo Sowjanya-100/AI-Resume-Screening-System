@@ -416,7 +416,7 @@ if uploaded_file:
 
             st.markdown("## 📊 Skill Distribution")
         
-            if matched or missing:
+            if len(matched) > 0 and len(missing) > 0:
         
                 chart = create_pie_chart(matched, missing)
         
