@@ -28,14 +28,16 @@ st.markdown("""
 /* ==========================
    Main Background
 ========================== */
+
 .stApp {
-    background-color: #0E1117;
-    color: #FAFAFA;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 /* ==========================
    Main Container
 ========================== */
+
 .block-container {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -46,47 +48,58 @@ st.markdown("""
 /* ==========================
    Metric Cards
 ========================== */
+
 [data-testid="stMetric"] {
-    background-color: #1C1F26;
-    border: 1px solid #2E3440;
+    background-color: var(--secondary-background-color);
+    border: 1px solid rgba(128, 128, 128, 0.25);
     border-radius: 15px;
     padding: 18px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
 }
 
 /* Metric Label */
+
 [data-testid="stMetricLabel"] {
-    color: #BFC7D5;
+    color: var(--text-color);
 }
 
 /* Metric Value */
+
 [data-testid="stMetricValue"] {
-    color: white;
+    color: var(--text-color);
 }
 
 /* ==========================
    File Uploader
 ========================== */
+
 [data-testid="stFileUploader"] {
-    background-color: #1C1F26;
+    background-color: var(--secondary-background-color);
     border-radius: 15px;
-    border: 1px solid #2E3440;
+    border: 1px solid rgba(128, 128, 128, 0.25);
     padding: 10px;
+}
+
+/* File uploader text */
+
+[data-testid="stFileUploader"] label {
+    color: var(--text-color) !important;
 }
 
 /* ==========================
    Text Area
 ========================== */
+
 textarea {
-    background-color: #1C1F26 !important;
-    color: white !important;
+    background-color: var(--secondary-background-color) !important;
+    color: var(--text-color) !important;
     border-radius: 12px !important;
-    border: 1px solid #2E3440 !important;
+    border: 1px solid rgba(128, 128, 128, 0.25) !important;
 }
 
 /* ==========================
    Buttons
 ========================== */
+
 .stButton > button,
 .stDownloadButton > button {
     width: 100%;
@@ -105,26 +118,38 @@ textarea {
 /* ==========================
    Expanders
 ========================== */
+
 .streamlit-expanderHeader {
     font-size: 18px;
     font-weight: 600;
-    color: white;
+    color: var(--text-color);
 }
 
 /* ==========================
    Headers
 ========================== */
+
 h1, h2, h3, h4, h5 {
-    color: white;
+    color: var(--text-color);
+}
+
+/* ==========================
+   General Text
+========================== */
+
+p, label, span {
+    color: var(--text-color);
 }
 
 /* ==========================
    Horizontal Line
 ========================== */
+
 hr {
     margin-top: 25px;
     margin-bottom: 25px;
-    border: 1px solid #2E3440;
+    border: none;
+    border-top: 1px solid rgba(128, 128, 128, 0.25);
 }
 
 </style>
