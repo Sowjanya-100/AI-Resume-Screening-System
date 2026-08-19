@@ -166,7 +166,7 @@ st.markdown(
         </div>
 
         <div style="
-            color: var(--text-color);
+            color: #9CA3AF;
             font-size: 22px;
             font-weight: 600;
             margin-bottom: 25px;
@@ -178,7 +178,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
 st.markdown("---")
 
 uploaded_file = st.file_uploader(
