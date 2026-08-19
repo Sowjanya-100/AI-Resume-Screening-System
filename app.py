@@ -151,7 +151,8 @@ hr {
     border: none;
     border-top: 1px solid rgba(128, 128, 128, 0.25);
 }
-
+</style>
+""", unsafe_allow_html=True)
 st.markdown(
     """
     <div style="text-align: center;">
