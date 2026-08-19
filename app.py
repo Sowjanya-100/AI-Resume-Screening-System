@@ -153,32 +153,15 @@ hr {
 }
 </style>
 """, unsafe_allow_html=True)
-st.markdown(
-    """
-    <div style="text-align: center;">
+st.markdown("""
+<h1 style='text-align:center;color:#2563EB;'>
+📄 AI Resume Screening System
+</h1>
 
-        <div style="
-            color: #2563EB;
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        ">
-            📄 AI Resume Screening System
-        </div>
-
-        <div style="
-            color: #9CA3AF;
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 25px;
-        ">
-            Smart Resume Analysis using AI & ATS Scoring
-        </div>
-
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+<h4 style='text-align:center;color:gray;'>
+Smart Resume Analysis using AI & ATS Scoring
+</h4>
+""", unsafe_allow_html=True)
 st.markdown("---")
 
 uploaded_file = st.file_uploader(
