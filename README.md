@@ -1,4 +1,4 @@
-# 📄 AI Resume Screening System
+# 📄 AI Resume Screening System   (in progress)
 
 An AI-powered Resume Screening System that analyzes resumes against job descriptions, calculates ATS scores, identifies skill gaps, evaluates education and experience, and generates a professional PDF report with personalized recommendations.
 
