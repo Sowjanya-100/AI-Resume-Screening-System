@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ATS Analysis Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+   
+
+    <div class="analysis-container ats-dashboard">
+
+        <!-- Top Navigation -->
+
+        <div class="dashboard-topbar">
+
+            <a href="{{ url_for('ats_result', filename=filename) }}"
+               class="back-button">
+                ← Back
+            </a>
+
+            <a href="{{ url_for('home') }}"
+               class="home-link">
+                ⌂ Home
+            </a>
+            
+        </div>
+
+
+        <!-- Heading -->
+
+        <div class="dashboard-header">
+
+            <h1>ATS Analysis Result</h1>
+
+            <p class="success-message">
+                ✓ Your resume has been analyzed successfully.
+            </p>
+
+            <div class="resume-file">
+                📄 {{ filename }}
+            </div>
+
+        </div>
+
+
+        <!-- ATS Score -->
+
+        <div class="ats-score-card">
+
+            <h2>ATS Score</h2>
+
+            <div class="ats-score">
+                {{ report.overall_score }}/100
+            </div>
+
+            <p class="ats-status">
+                {{ report.score_band }}
+            </p>
+
+        </div>
+
+
+        <!-- Resume Analysis -->
+
+        <div class="dashboard-card">
+
+            <h2>Resume Analysis</h2>
+
+            <div class="analysis-grid">
+
+                <div class="metric-item">
+                    <span>📧 Email</span>
+
+                    {% if report.contact_info.has_email %}
+                        <strong class="status-good">
+                            ✓ Detected
+                        </strong>
+                    {% else %}
+                        <strong class="status-bad">
+                            ✗ Missing
+                        </strong>
+                    {% endif %}
+                </div>
+
+
+                <div class="metric-item">
+                    <span>📱 Phone</span>
+
+                    {% if report.contact_info.has_phone %}
+                        <strong class="status-good">
+                            ✓ Detected
+                        </strong>
+                    {% else %}
+                        <strong class="status-bad">
+                            ✗ Missing
+                        </strong>
+                    {% endif %}
+                </div>
+
+
+                <div class="metric-item">
+                    <span>🔗 LinkedIn</span>
+
+                    {% if report.contact_info.has_linkedin %}
+                        <strong class="status-good">
+                            ✓ Detected
+                        </strong>
+                    {% else %}
+                        <strong class="status-bad">
+                            ✗ Missing
+                        </strong>
+                    {% endif %}
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Resume Sections -->
+
+        <div class="dashboard-card">
+
+            <h2>Resume Sections</h2>
+
+            <div class="section-grid">
+
+                {% set sections =
+                    report.breakdown.section_completeness.sections_found
+                %}
+
+                {% for section, value in sections.items() %}
+
+                    {% if value %}
+
+                        <div class="metric-item">
+
+                            <span>
+                                {{ section|title }}
+                            </span>
+
+                            <strong class="status-good">
+                                ✓ Detected
+                            </strong>
+
+                        </div>
+
+                    {% endif %}
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+
+        <!-- Detailed ATS Analysis -->
+
+        <div class="dashboard-card">
+
+            <h2>Detailed ATS Analysis</h2>
+
+            <div class="score-grid">
+
+                <div class="score-item">
+                    <span>📄 Formatting</span>
+                    <strong>
+                        {{ report.breakdown.formatting.score_pct }}/100
+                    </strong>
+                </div>
+
+
+                <div class="score-item">
+                    <span>📑 Section Completeness</span>
+                    <strong>
+                        {{ report.breakdown.section_completeness.score_pct }}/100
+                    </strong>
+                </div>
+
+
+                <div class="score-item">
+                    <span>📞 Contact Information</span>
+                    <strong>
+                        {{ report.breakdown.contact_information.score_pct }}/100
+                    </strong>
+                </div>
+
+
+                <div class="score-item">
+                    <span>📅 Date Parsing</span>
+                    <strong>
+                        {{ report.breakdown.date_parsing.score_pct }}/100
+                    </strong>
+                </div>
+
+
+                <div class="score-item">
+                    <span>📖 ATS Readability</span>
+                    <strong>
+                        {{ report.breakdown.readability.score_pct }}/100
+                    </strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ATS Warnings -->
+
+        <div class="dashboard-card warning-card">
+
+            <h2>⚠ ATS Warnings</h2>
+
+            {% if report.warnings %}
+
+                {% for warning in report.warnings %}
+
+                    <div class="warning-item">
+                        ⚠ {{ warning }}
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <div class="success-item">
+                    ✓ No major ATS issues detected.
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- ATS Recommendations -->
+
+        <div class="dashboard-card recommendation-card">
+
+            <h2>💡 ATS Recommendations</h2>
+
+            {% if report.recommendations %}
+
+                {% for recommendation in report.recommendations %}
+
+                    <div class="recommendation-item">
+                        • {{ recommendation }}
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <div class="success-item">
+                    ✓ No major ATS improvements were identified.
+                </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- Bottom Actions -->
+
+        <div class="dashboard-actions">
+
+            <a href="{{ url_for('download_ats_report', filename=filename) }}"
+   class="button download-button">
+    📥 Download Report
+</a>
+
+
+            <a href="{{ url_for('ats_checker') }}"
+               class="button">
+                🔍 Analyze Another Resume
+            </a>
+
+        </div>
+
+    </div>
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</body>
+
+</html>

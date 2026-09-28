@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About - AI Resume Screening System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            AI Resume Screening System
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+           
+        </div>
+
+    </nav>
+
+
+    <!-- ABOUT SECTION -->
+
+    <section class="about-section">
+
+        <h1>
+            About the System
+        </h1>
+
+        <p class="about-intro">
+            AI Resume Screening System is a web-based application
+            designed to help job seekers analyze their resumes and
+            compare them with job descriptions.
+        </p>
+
+
+        <!-- ATS RESUME CHECKER -->
+
+        <div class="about-content">
+
+            <h2>
+                ATS Resume Checker
+            </h2>
+
+            <p>
+                The ATS Resume Checker analyzes a resume for
+                ATS compatibility and identifies important areas
+                such as formatting, readability, contact information,
+                dates, and resume structure.
+            </p>
+
+            <p>
+                It also provides an ATS score and recommendations
+                that can help users improve the clarity and
+                compatibility of their resumes.
+            </p>
+
+        </div>
+
+
+        <!-- JOB MATCHER -->
+
+        <div class="about-content">
+
+            <h2>
+                Job Description Matcher
+            </h2>
+
+            <p>
+                The Job Description Matcher compares a resume
+                with a specific job description to identify
+                matching and missing skills.
+            </p>
+
+            <p>
+                It provides match percentage, resume similarity,
+                ATS score, recommendations, and relevant learning
+                resources based on the job description.
+            </p>
+
+        </div>
+
+
+        <!-- PURPOSE -->
+
+        <div class="about-content">
+
+            <h2>
+                Purpose
+            </h2>
+
+            <p>
+                The purpose of this system is to make resume
+                analysis easier and more understandable for
+                job seekers by presenting important resume
+                information and job requirements in a simple format.
+            </p>
+
+        </div>
+
+
+        <!-- TECHNOLOGIES -->
+
+        <div class="about-content">
+
+            <h2>
+                Technologies Used
+            </h2>
+
+            <p>
+                Python • Flask • NLP • HTML • CSS • PDF Processing
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            AI Resume Screening System
+        </p>
+
+        <p>
+            Python • Flask • NLP • HTML • CSS
+        </p>
+
+    </footer>
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</body>
+
+</html>
+```

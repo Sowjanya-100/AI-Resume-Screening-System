@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Job Description Matcher</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        /* =========================================
+           JOB MATCHER PAGE
+        ========================================= */
+
+        .job-matcher-page {
+            min-height: 100vh;
+            padding: 50px 20px;
+        }
+
+        .job-matcher-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+
+        /* =========================================
+           TOP BAR
+        ========================================= */
+
+        .job-matcher-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+
+        .job-matcher-topbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .job-matcher-topbar a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .job-matcher-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .job-matcher-header h1 {
+            margin-bottom: 10px;
+        }
+
+        .job-matcher-header p {
+            color: #666;
+        }
+
+
+        /* =========================================
+           UPLOAD CARDS
+        ========================================= */
+
+        .matcher-card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .matcher-card h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .matcher-card > p {
+            color: #666;
+        }
+
+
+        /* =========================================
+           RESUME FILE INPUT
+        ========================================= */
+
+        .resume-file-input {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+
+        /* =========================================
+           RESUME UPLOAD DASHED BOX
+        ========================================= */
+
+        .resume-upload-box {
+            width: 100%;
+            min-height: 160px;
+
+            border: 2px dashed #9ca3af;
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            background: #ffffff;
+
+            padding: 25px;
+
+            box-sizing: border-box;
+
+            transition: 0.2s ease;
+        }
+
+        .resume-upload-box:hover {
+            border-color: #2563eb;
+            background: #f8fbff;
+        }
+
+        .resume-upload-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .resume-upload-icon {
+            font-size: 30px;
+        }
+
+        .resume-upload-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172b4d;
+        }
+
+        .resume-upload-subtext {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .resume-upload-name {
+            font-size: 14px;
+            color: #666;
+            word-break: break-word;
+        }
+
+        #resume {
+            display: none;
+        }
+
+
+        /* =========================================
+           JD BUTTONS
+        ========================================= */
+
+        .jd-method-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .jd-method-button {
+            flex: 1;
+            padding: 14px 18px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #fff;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        .jd-method-button:hover {
+            background: #f7f7f7;
+        }
+
+        .jd-method-button.active {
+            border-color: #333;
+            background: #f3f3f3;
+        }
+
+
+        /* =========================================
+           JD INPUT AREA
+        ========================================= */
+
+        .jd-input-area {
+            margin-top: 18px;
+        }
+
+        .jd-panel {
+            display: none;
+        }
+
+        .jd-panel.active {
+            display: block;
+        }
+
+
+        /* =========================================
+           UPLOAD JD DASHED BOX
+        ========================================= */
+
+        .jd-upload-box {
+            width: 100%;
+            min-height: 150px;
+            border: 2px dashed #aaa;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s ease;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .jd-upload-box:hover {
+            border-color: #555;
+            background: #fafafa;
+        }
+
+        .jd-upload-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .jd-upload-icon {
+            font-size: 30px;
+        }
+
+        .jd-upload-text {
+            font-weight: 600;
+        }
+
+        .jd-upload-name {
+            color: #666;
+            font-size: 14px;
+            word-break: break-word;
+        }
+
+        #jd_file {
+            display: none;
+        }
+
+
+        /* =========================================
+           COPY / PASTE BOX
+        ========================================= */
+
+        .jd-paste-box {
+            width: 100%;
+            min-height: 180px;
+            box-sizing: border-box;
+            resize: vertical;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 16px;
+            font-family: inherit;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .jd-paste-box:focus {
+            border-color: #777;
+        }
+
+
+        /* =========================================
+           ANALYZE BUTTON
+        ========================================= */
+
+        .matcher-action {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+
+        /* =========================================
+           POPUP MESSAGE
+        ========================================= */
+
+        .popup-message {
+            position: fixed;
+            top: 25px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            min-width: 300px;
+            max-width: 500px;
+
+            padding: 14px 20px;
+
+            background: #ffffff;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 5px 25px rgba(0, 0, 0, 0.15);
+
+            text-align: center;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            z-index: 99999;
+
+            animation: popupSlide 0.3s ease;
+        }
+
+        .popup-success {
+            border-left: 5px solid #22c55e;
+        }
+
+        .popup-warning {
+            border-left: 5px solid #f59e0b;
+        }
+
+        .popup-error {
+            border-left: 5px solid #ef4444;
+        }
+
+        @keyframes popupSlide {
+
+            from {
+                opacity: 0;
+                transform: translate(-50%, -20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .job-matcher-page {
+                padding: 30px 15px;
+            }
+
+            .matcher-card {
+                padding: 20px;
+            }
+
+            .jd-method-buttons {
+                flex-direction: column;
+            }
+
+            .jd-upload-box {
+                min-height: 130px;
+            }
+
+            .popup-message {
+                min-width: 250px;
+                max-width: 90%;
+            }
+        }
+        /* =========================================================
+   POPUP DARK THEME
+   ========================================================= */
+
+body.dark-theme .popup-message {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-color: #444444 !important;
+}
+
+html.dark-theme .popup-message {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-color: #444444 !important;
+}
+
+body.dark-theme .popup-message.popup-success,
+html.dark-theme .popup-message.popup-success {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-left: 5px solid #22c55e !important;
+}
+
+body.dark-theme .popup-message.popup-warning,
+html.dark-theme .popup-message.popup-warning {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-left: 5px solid #f59e0b !important;
+}
+
+body.dark-theme .popup-message.popup-error,
+html.dark-theme .popup-message.popup-error {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-left: 5px solid #ef4444 !important;
+}
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="job-matcher-page">
+
+    <div class="job-matcher-container">
+
+
+        <!-- =====================================
+             TOP BAR
+        ====================================== -->
+
+        <div class="job-matcher-topbar">
+
+            <a href="{{ url_for('home') }}">
+                ← Back
+            </a>
+            
+
+        </div>
+
+
+        <!-- =====================================
+             HEADER
+        ====================================== -->
+
+        <div class="job-matcher-header">
+
+            <h1>Job Description Matcher</h1>
+
+            <p>
+                Compare your resume with a job description
+                to identify matching and missing skills.
+            </p>
+
+        </div>
+
+
+        <!-- =====================================
+             RESUME UPLOAD
+        ====================================== -->
+
+        <div class="matcher-card">
+
+            <h2>1. Upload Resume</h2>
+
+            <p>
+                Upload your resume in PDF or DOCX format.
+            </p>
+
+
+            <label
+                for="resume"
+                class="resume-upload-box"
+            >
+
+                <div class="resume-upload-content">
+
+                    <div class="resume-upload-icon">
+                        📄
+                    </div>
+
+                    <div class="resume-upload-text">
+                        Choose your resume
+                    </div>
+
+                    <div class="resume-upload-subtext">
+                        Click here to select a PDF or DOCX file
+                    </div>
+
+                    <div
+                        id="resumeFileName"
+                        class="resume-upload-name"
+                    >
+                        PDF or DOCX
+                    </div>
+
+                </div>
+
+            </label>
+
+
+            <input
+                type="file"
+                name="resume"
+                id="resume"
+                accept=".pdf,.docx"
+                form="job-matcher-form"
+                required
+            >
+
+        </div>
+
+
+        <!-- =====================================
+             JOB DESCRIPTION
+        ====================================== -->
+
+        <div class="matcher-card">
+
+            <h2>2. Add Job Description</h2>
+
+            <p>
+                Choose one method to provide the job description.
+            </p>
+
+
+            <!-- BUTTONS -->
+
+            <div class="jd-method-buttons">
+
+                <button
+                    type="button"
+                    class="jd-method-button"
+                    id="uploadJdButton"
+                    onclick="showUploadJD()"
+                >
+                    📄 Upload JD
+                </button>
+
+
+                <button
+                    type="button"
+                    class="jd-method-button"
+                    id="pasteJdButton"
+                    onclick="showPasteJD()"
+                >
+                    📋 Copy / Paste JD
+                </button>
+
+            </div>
+
+
+            <!-- INPUT AREA -->
+
+            <div class="jd-input-area">
+
+
+                <!-- UPLOAD JD PANEL -->
+
+                <div
+                    class="jd-panel"
+                    id="uploadJdPanel"
+                >
+
+                    <label
+                        for="jd_file"
+                        class="jd-upload-box"
+                    >
+
+                        <div class="jd-upload-content">
+
+                            <div class="jd-upload-icon">
+                                📄
+                            </div>
+
+                            <div class="jd-upload-text">
+                                Click here to choose Job Description
+                            </div>
+
+                            <div
+                                class="jd-upload-name"
+                                id="jdFileName"
+                            >
+                                PDF or DOCX
+                            </div>
+
+                        </div>
+
+                    </label>
+
+
+                    <input
+                        type="file"
+                        id="jd_file"
+                        name="jd_file"
+                        accept=".pdf,.docx"
+                        form="job-matcher-form"
+                    >
+
+                </div>
+
+
+                <!-- COPY / PASTE PANEL -->
+
+                <div
+                    class="jd-panel"
+                    id="pasteJdPanel"
+                >
+
+                    <textarea
+                        id="job_description"
+                        name="job_description"
+                        class="jd-paste-box"
+                        form="job-matcher-form"
+                        placeholder="Copy and paste the complete job description here..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             ANALYZE FORM
+        ====================================== -->
+
+        <form
+            id="job-matcher-form"
+            action="{{ url_for('job_matcher_analyze') }}"
+            method="POST"
+            enctype="multipart/form-data"
+            onsubmit="return validateJobMatcher();"
+        >
+
+            <div class="matcher-action">
+
+                <button
+                    type="submit"
+                    class="button"
+                >
+                    🔍 Analyze Resume & Job
+                </button>
+
+            </div>
+
+        </form>
+
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+    /* =========================================
+       POPUP FUNCTION
+    ========================================= */
+
+    function showPopup(message, type = "success") {
+
+        const oldPopup =
+            document.querySelector(".popup-message");
+
+        if (oldPopup) {
+            oldPopup.remove();
+        }
+
+
+        const popup =
+            document.createElement("div");
+
+        popup.className =
+            "popup-message popup-" + type;
+
+        popup.textContent =
+            message;
+
+        document.body.appendChild(popup);
+
+
+        setTimeout(function () {
+
+            popup.style.opacity = "0";
+
+            setTimeout(function () {
+                popup.remove();
+            }, 300);
+
+        }, 3000);
+
+    }
+
+
+    /* =========================================
+       SHOW UPLOAD JD
+    ========================================= */
+
+    function showUploadJD() {
+
+        const uploadPanel =
+            document.getElementById("uploadJdPanel");
+
+        const pastePanel =
+            document.getElementById("pasteJdPanel");
+
+        const uploadButton =
+            document.getElementById("uploadJdButton");
+
+        const pasteButton =
+            document.getElementById("pasteJdButton");
+
+
+        uploadPanel.classList.add("active");
+
+        pastePanel.classList.remove("active");
+
+        uploadButton.classList.add("active");
+
+        pasteButton.classList.remove("active");
+
+    }
+
+
+    /* =========================================
+       SHOW COPY / PASTE JD
+    ========================================= */
+
+    function showPasteJD() {
+
+        const uploadPanel =
+            document.getElementById("uploadJdPanel");
+
+        const pastePanel =
+            document.getElementById("pasteJdPanel");
+
+        const uploadButton =
+            document.getElementById("uploadJdButton");
+
+        const pasteButton =
+            document.getElementById("pasteJdButton");
+
+
+        pastePanel.classList.add("active");
+
+        uploadPanel.classList.remove("active");
+
+        pasteButton.classList.add("active");
+
+        uploadButton.classList.remove("active");
+
+    }
+
+
+    /* =========================================
+       RESUME FILE SELECTION
+    ========================================= */
+
+    document
+        .getElementById("resume")
+        .addEventListener("change", function () {
+
+            const fileName =
+                document.getElementById("resumeFileName");
+
+
+            if (this.files.length > 0) {
+
+                fileName.textContent =
+                    this.files[0].name;
+
+
+                showPopup(
+                    "✓ Resume uploaded successfully.",
+                    "success"
+                );
+
+            } else {
+
+                fileName.textContent =
+                    "PDF or DOCX";
+
+            }
+
+        });
+
+
+    /* =========================================
+       JD FILE SELECTION
+    ========================================= */
+
+    document
+        .getElementById("jd_file")
+        .addEventListener("change", function () {
+
+            const fileName =
+                document.getElementById("jdFileName");
+
+
+            if (this.files.length > 0) {
+
+                fileName.textContent =
+                    this.files[0].name;
+
+
+                showPopup(
+                    "✓ Job Description uploaded successfully.",
+                    "success"
+                );
+
+            } else {
+
+                fileName.textContent =
+                    "PDF or DOCX";
+
+            }
+
+        });
+
+
+    /* =========================================
+       VALIDATE JOB MATCHER
+    ========================================= */
+
+    function validateJobMatcher() {
+
+
+        /* -----------------------------------------
+           CHECK RESUME
+        ----------------------------------------- */
+
+        const resume =
+            document.getElementById("resume");
+
+
+        if (
+            !resume ||
+            resume.files.length === 0
+        ) {
+
+            showPopup(
+                "⚠️ Please upload a resume before analyzing.",
+                "warning"
+            );
+
+            return false;
+
+        }
+
+
+        /* -----------------------------------------
+           CHECK JOB DESCRIPTION FILE
+        ----------------------------------------- */
+
+        const jdFile =
+            document.getElementById("jd_file");
+
+
+        const hasJDFile =
+            jdFile &&
+            jdFile.files &&
+            jdFile.files.length > 0;
+
+
+        /* -----------------------------------------
+           CHECK COPY / PASTE JD
+        ----------------------------------------- */
+
+        const jdText =
+            document.getElementById("job_description");
+
+
+        const hasJDText =
+            jdText &&
+            jdText.value.trim().length > 0;
+
+
+        /* -----------------------------------------
+           IF NO JD
+        ----------------------------------------- */
+
+        if (
+            !hasJDFile &&
+            !hasJDText
+        ) {
+
+            showPopup(
+                "⚠️ Please upload or enter a Job Description.",
+                "warning"
+            );
+
+            return false;
+
+        }
+
+
+        /* -----------------------------------------
+           EVERYTHING IS VALID
+        ----------------------------------------- */
+
+        return true;
+
+    }
+
+</script>
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+
+</body>
+
+</html>

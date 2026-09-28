@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ATS Resume Checker</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        /* ================================
+           BACK BUTTON
+        ================================= */
+
+        .ats-back-button {
+            display: block;
+            width: fit-content;
+
+            margin: 18px 0 0 22px;
+
+            padding: 0;
+
+            color: #333;
+            text-decoration: none;
+
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .ats-back-button:hover {
+            text-decoration: underline;
+        }
+
+
+        /* ================================
+           RESUME UPLOAD BOX
+        ================================= */
+
+        .resume-upload-box {
+            width: 100%;
+            min-height: 160px;
+
+            border: 2px dashed #9ca3af;
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            background: #ffffff;
+
+            padding: 25px;
+
+            box-sizing: border-box;
+
+            transition: 0.2s ease;
+        }
+
+        .resume-upload-box:hover {
+            border-color: #2563eb;
+            background: #f8fbff;
+        }
+
+        .resume-upload-content {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+        .resume-upload-icon {
+            font-size: 30px;
+        }
+
+        .resume-upload-text {
+            font-size: 16px;
+
+            font-weight: 600;
+
+            color: #172b4d;
+        }
+
+        .resume-upload-subtext {
+            font-size: 14px;
+
+            color: #666;
+        }
+
+        .resume-upload-name {
+            font-size: 14px;
+
+            color: #2563eb;
+
+            font-weight: 600;
+
+            word-break: break-word;
+        }
+
+        #resume {
+            display: none;
+        }
+
+
+        /* ================================
+           POPUP
+        ================================= */
+
+        .popup-message {
+            position: fixed;
+
+            top: 25px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            min-width: 300px;
+
+            max-width: 500px;
+
+            padding: 14px 20px;
+
+            background: #ffffff;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 5px 25px rgba(0, 0, 0, 0.15);
+
+            text-align: center;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            z-index: 99999;
+
+            animation: popupSlide 0.3s ease;
+        }
+
+        .popup-success {
+            border-left: 5px solid #22c55e;
+        }
+
+        .popup-warning {
+            border-left: 5px solid #f59e0b;
+        }
+
+        .popup-error {
+            border-left: 5px solid #ef4444;
+        }
+
+        @keyframes popupSlide {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translate(-50%, -20px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translate(-50%, 0);
+            }
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 700px) {
+
+            .ats-back-button {
+                margin-left: 15px;
+            }
+
+            .resume-upload-box {
+                min-height: 140px;
+            }
+
+            .popup-message {
+                min-width: 250px;
+
+                max-width: 90%;
+            }
+        }
+/* =========================================================
+   POPUP DARK THEME
+   ========================================================= */
+
+body.dark-theme .popup-message {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-color: #444444 !important;
+}
+
+html.dark-theme .popup-message {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-color: #444444 !important;
+}
+
+body.dark-theme .popup-message.popup-success,
+html.dark-theme .popup-message.popup-success {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-left: 5px solid #22c55e !important;
+}
+
+body.dark-theme .popup-message.popup-warning,
+html.dark-theme .popup-message.popup-warning {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-left: 5px solid #f59e0b !important;
+}
+
+body.dark-theme .popup-message.popup-error,
+html.dark-theme .popup-message.popup-error {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-left: 5px solid #ef4444 !important;
+}
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         NAVBAR
+    ================================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            AI Resume Screening System
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="/">
+
+                Home
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================================
+         BACK BUTTON
+    ================================= -->
+
+    <a href="/"
+       class="ats-back-button">
+
+        ← Back
+
+    </a>
+
+
+    <!-- ================================
+         ATS CHECKER
+    ================================= -->
+
+    <section class="upload-section">
+
+
+        <h1>
+
+            ATS Resume Checker
+
+        </h1>
+
+
+        <p>
+
+            Upload your resume and check how ATS-friendly it is.
+
+        </p>
+
+
+        <div class="upload-card">
+
+
+            <form
+                action="/analyze-ats"
+                method="POST"
+                enctype="multipart/form-data"
+                onsubmit="return validateATSResume();"
+            >
+
+
+                <label>
+
+                    Upload Your Resume
+
+                </label>
+
+
+                <!-- ==========================
+                     DASHED RESUME BOX
+                =========================== -->
+
+                <label
+                    for="resume"
+                    class="resume-upload-box"
+                >
+
+                    <div class="resume-upload-content">
+
+
+                        <div class="resume-upload-icon">
+
+                            📄
+
+                        </div>
+
+
+                        <div class="resume-upload-text">
+
+                            Choose your resume
+
+                        </div>
+
+
+                        <div class="resume-upload-subtext">
+
+                            Click here to select a PDF or DOCX file
+
+                        </div>
+
+
+                        <div
+                            id="resumeFileName"
+                            class="resume-upload-name"
+                        >
+
+                            PDF or DOCX
+
+                        </div>
+
+
+                    </div>
+
+                </label>
+
+
+                <input
+                    type="file"
+                    id="resume"
+                    name="resume"
+                    accept=".pdf,.docx"
+                >
+
+
+                <p class="file-info">
+
+                    Supported formats: PDF and DOCX
+
+                </p>
+
+
+                <button
+                    type="submit"
+                    class="button"
+                >
+
+                    Analyze Resume
+
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer>
+
+        <p>
+
+            AI Resume Screening System
+
+        </p>
+
+
+        <p>
+
+            Python • Flask • NLP • HTML • CSS
+
+        </p>
+
+    </footer>
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
+    <script>
+
+        /* ================================
+           SHOW POPUP
+        ================================= */
+
+        function showPopup(message, type = "success") {
+
+            const oldPopup =
+                document.querySelector(
+                    ".popup-message"
+                );
+
+
+            if (oldPopup) {
+
+                oldPopup.remove();
+
+            }
+
+
+            const popup =
+                document.createElement("div");
+
+
+            popup.className =
+                "popup-message popup-" + type;
+
+
+            popup.textContent =
+                message;
+
+
+            document.body.appendChild(
+                popup
+            );
+
+
+            setTimeout(function () {
+
+                popup.style.opacity = "0";
+
+
+                setTimeout(function () {
+
+                    popup.remove();
+
+                }, 300);
+
+
+            }, 3000);
+
+        }
+
+
+        /* ================================
+           RESUME SELECTED
+        ================================= */
+
+        const resumeInput =
+            document.getElementById("resume");
+
+
+        if (resumeInput) {
+
+            resumeInput.addEventListener(
+                "change",
+                function () {
+
+                    if (this.files.length > 0) {
+
+                        const file =
+                            this.files[0];
+
+
+                        const fileName =
+                            document.getElementById(
+                                "resumeFileName"
+                            );
+
+
+                        if (fileName) {
+
+                            fileName.textContent =
+                                "Selected: " +
+                                file.name;
+
+                        }
+
+
+                        showPopup(
+                            "✓ Resume uploaded successfully.",
+                            "success"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* ================================
+           VALIDATE BEFORE ANALYSIS
+        ================================= */
+
+        function validateATSResume() {
+
+            const resume =
+                document.getElementById(
+                    "resume"
+                );
+
+
+            if (
+                !resume ||
+                resume.files.length === 0
+            ) {
+
+                showPopup(
+                    "⚠️ Please upload a resume before analyzing.",
+                    "warning"
+                );
+
+
+                return false;
+
+            }
+
+
+            return true;
+
+        }
+
+    </script>
+
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</body>
+
+</html>

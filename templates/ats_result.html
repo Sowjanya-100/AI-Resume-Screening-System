@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Uploaded Successfully</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        /* =========================================
+           BACK BUTTON
+           ========================================= */
+
+        .result-back-button {
+            display: block;
+
+            width: fit-content;
+
+            margin: 18px 0 0 22px;
+
+            padding: 0;
+
+            color: #333;
+
+            text-decoration: none;
+
+            font-size: 16px;
+
+            font-weight: 500;
+        }
+
+        .result-back-button:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           UPLOAD RESULT PAGE
+           ========================================= */
+
+        .upload-result-section {
+
+            max-width: 800px;
+
+            margin: 70px auto;
+
+            padding: 20px;
+
+            text-align: center;
+
+        }
+
+
+        .upload-result-card {
+
+            max-width: 600px;
+
+            margin: 30px auto;
+
+            padding: 40px 30px;
+
+            background: #ffffff;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.08);
+
+        }
+
+
+        .upload-success {
+
+            color: #198754;
+
+            font-size: 17px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .uploaded-file {
+
+            margin: 20px auto;
+
+            padding: 15px;
+
+            background: #f5f7fb;
+
+            border-radius: 8px;
+
+            font-weight: 600;
+
+            word-break: break-word;
+
+        }
+
+
+        .result-actions {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin-top: 25px;
+
+        }
+
+
+        .result-actions a {
+
+            text-decoration: none;
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .result-back-button {
+
+                margin-left: 15px;
+
+            }
+
+            .upload-result-section {
+
+                margin-top: 40px;
+
+                padding: 15px;
+
+            }
+
+            .upload-result-card {
+
+                padding: 30px 20px;
+
+            }
+
+            .result-actions {
+
+                flex-direction: column;
+
+            }
+
+            .result-actions a {
+
+                width: 100%;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVBAR
+         ========================================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            AI Resume Screening System
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+        </div>  
+
+    </nav>
+
+
+    <!-- =========================================
+         BACK BUTTON
+         BELOW NAVBAR - LEFT CORNER
+         ========================================= -->
+
+    <a href="/"
+       class="result-back-button">
+
+        ← Back
+
+    </a>
+
+
+    <!-- =========================================
+         UPLOAD RESULT
+         ========================================= -->
+
+    <section class="upload-result-section">
+
+
+        <div class="upload-result-card">
+
+
+            <h1>
+
+                Resume Uploaded Successfully
+
+            </h1>
+
+
+            <p class="upload-success">
+
+                ✓ Your resume has been uploaded successfully.
+
+            </p>
+
+
+            <div class="uploaded-file">
+
+                📄 {{ filename }}
+
+            </div>
+
+
+            <div class="result-actions">
+
+
+                <!-- Preview -->
+
+                <a
+                    href="{{ url_for('preview_resume', filename=filename) }}"
+                    class="button"
+                    target="_blank"
+                >
+
+                    👁 Preview Resume
+
+                </a>
+
+
+                <!-- Analyze -->
+
+                <form
+                    action="{{ url_for('analyze_resume_route') }}"
+                    method="POST"
+                    style="margin: 0;"
+                >
+
+                    <input
+                        type="hidden"
+                        name="filename"
+                        value="{{ filename }}"
+                    >
+
+
+                    <button
+                        type="submit"
+                        class="button"
+                    >
+
+                        🔍 Analyze Resume
+
+                    </button>
+
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+
+    <footer>
+
+        <p>
+
+            AI Resume Screening System
+
+        </p>
+
+
+        <p>
+
+            Python • Flask • NLP • HTML • CSS
+
+        </p>
+
+    </footer>
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+
+</body>
+
+</html>

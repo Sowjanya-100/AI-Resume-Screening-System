@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Resume Screening System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="logo">
+            AI Resume Screening System
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <button id="theme-toggle" class="theme-toggle" class="theme-toggle circle-btn">
+        🌙 
+    </button>
+        </div>
+
+        
+
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <h1>AI-Powered Resume Screening</h1>
+
+        <p>
+            Analyze your resume, check ATS compatibility,
+            and match your skills with job requirements.
+        </p>
+
+    </section>
+
+
+    <!-- Main Options -->
+    <section class="options">
+
+        <!-- ATS Checker -->
+        <div class="card">
+
+            <div class="icon">
+                📄
+            </div>
+
+            <h2>ATS Resume Checker</h2>
+
+            <p>
+                Check whether your resume is ATS-friendly
+                and identify areas that can be improved.
+            </p>
+
+            <a href="/ats-checker" class="button">
+                Check ATS
+            </a>
+
+        </div>
+
+
+        <!-- Job Matcher -->
+        <div class="card">
+
+            <div class="icon">
+                🎯
+            </div>
+
+            <h2>Job Description Matcher</h2>
+
+            <p>
+                Compare your resume with a job description
+                and discover matching and missing skills.
+            </p>
+
+            <a href="/job-matcher" class="button">
+                Match Resume
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            AI Resume Screening System
+        </p>
+
+        <p>
+            Built with Python • Flask • NLP • HTML • CSS
+        </p>
+
+    </footer>
+<script src="{{ url_for('static', filename='js/theme.js') }}"></script>
+</body>
+
+</html>
