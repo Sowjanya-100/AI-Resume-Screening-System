@@ -1,0 +1,2842 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f5f7fb;
+    color: #172b4d;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 40px;
+
+    background: #ffffff;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   COMMON BUTTON
+   ========================================================= */
+
+.button {
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: opacity 0.2s ease;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   ATS CHECKER / UPLOAD
+   ========================================================= */
+
+.upload-section {
+    max-width: 850px;
+
+    margin: 60px auto;
+
+    padding: 20px;
+
+    text-align: center;
+}
+
+.upload-section h1 {
+    margin-bottom: 10px;
+}
+
+.upload-card {
+    max-width: 600px;
+
+    margin: 30px auto;
+
+    padding: 30px;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.upload-card label {
+    display: block;
+
+    margin-bottom: 15px;
+
+    font-weight: 600;
+}
+
+.upload-card input[type="file"] {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 10px;
+}
+
+.file-info {
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    text-align: center;
+
+    padding: 30px 20px;
+
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   RESUME UPLOAD SUCCESS PAGE
+   ========================================================= */
+
+.analysis-container {
+    max-width: 700px;
+
+    margin: 80px auto;
+
+    padding: 40px;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+}
+
+
+/* Back button used on upload-success page */
+
+.top-bar {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.back-button {
+    text-decoration: none;
+
+    color: #333;
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+   ========================================================= */
+
+.success-message {
+    margin: 20px 0;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   RESUME FILE
+   ========================================================= */
+
+.resume-file {
+    max-width: 500px;
+
+    margin: 25px auto;
+
+    padding: 15px;
+
+    background: #f5f5f5;
+
+    border-radius: 8px;
+
+    font-weight: 500;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   UPLOAD PAGE ACTIONS
+   ========================================================= */
+
+.analysis-actions {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 25px;
+}
+
+.preview-button {
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   ATS DASHBOARD
+   ========================================================= */
+
+.ats-dashboard {
+    max-width: 1000px;
+
+    margin: 40px auto;
+
+    padding: 35px 40px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   DASHBOARD TOP NAVIGATION
+   ========================================================= */
+
+.dashboard-topbar {
+    position: fixed;
+
+    top: 20px;
+
+    left: 20px;
+
+    right: 20px;
+
+    height: 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 1000;
+
+    pointer-events: none;
+}
+
+.dashboard-topbar a {
+    pointer-events: auto;
+
+    text-decoration: none;
+
+    color: #333;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    background: transparent;
+}
+
+.dashboard-topbar a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   DASHBOARD HEADER
+   ========================================================= */
+
+.dashboard-header {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    margin-bottom: 10px;
+
+    font-size: 34px;
+}
+
+.dashboard-header .success-message {
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   RESUME FILE ON DASHBOARD
+   ========================================================= */
+
+.ats-dashboard .resume-file {
+    max-width: 540px;
+
+    margin: 20px auto;
+}
+
+
+/* =========================================================
+   ATS SCORE
+   ========================================================= */
+
+.ats-dashboard .ats-score-card {
+    max-width: 450px;
+
+    margin: 35px auto 45px;
+
+    padding: 30px;
+
+    background: #f8faff;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.ats-dashboard .ats-score-card h2 {
+    margin: 0 0 10px;
+}
+
+.ats-dashboard .ats-score {
+    font-size: 52px;
+
+    font-weight: 700;
+
+    line-height: 1.1;
+}
+
+.ats-dashboard .ats-status {
+    margin-top: 10px;
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   DASHBOARD CARDS
+   ========================================================= */
+
+.dashboard-card {
+    background: #ffffff;
+
+    border: 1px solid #e9edf5;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-card h2 {
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+    font-size: 23px;
+}
+
+
+/* =========================================================
+   RESUME ANALYSIS GRID
+   ========================================================= */
+
+.analysis-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   RESUME SECTIONS GRID
+   ========================================================= */
+
+.section-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   METRIC ITEM
+   ========================================================= */
+
+.metric-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 16px 18px;
+
+    background: #f7f8fa;
+
+    border-radius: 10px;
+}
+
+.metric-item span {
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   DETAILED SCORE GRID
+   ========================================================= */
+
+.score-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.score-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 17px 18px;
+
+    background: #f7f8fa;
+
+    border-radius: 10px;
+}
+
+.score-item strong {
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status-good {
+    font-weight: 700;
+}
+
+.status-bad {
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   WARNINGS
+   ========================================================= */
+
+.warning-card {
+    border-left: 5px solid #f0ad00;
+}
+
+.warning-item {
+    padding: 13px 15px;
+
+    margin-bottom: 10px;
+
+    background: #fff8e5;
+
+    border-radius: 8px;
+
+    line-height: 1.5;
+}
+
+.warning-item:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   RECOMMENDATIONS
+   ========================================================= */
+
+.recommendation-card {
+    border-left: 5px solid #2563eb;
+}
+
+.recommendation-item {
+    padding: 13px 15px;
+
+    margin-bottom: 10px;
+
+    background: #f5f8ff;
+
+    border-radius: 8px;
+
+    line-height: 1.5;
+}
+
+.recommendation-item:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   SUCCESS ITEM
+   ========================================================= */
+
+.success-item {
+    padding: 13px 15px;
+
+    border-radius: 8px;
+
+    background: #f1f8f3;
+}
+
+
+/* =========================================================
+   DASHBOARD ACTIONS
+   ========================================================= */
+
+.dashboard-actions {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 30px;
+
+    flex-wrap: wrap;
+}
+
+.dashboard-actions .button {
+    min-width: 210px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+
+    /* Dashboard */
+
+    .ats-dashboard {
+        width: calc(100% - 30px);
+
+        margin: 25px auto;
+
+        padding: 25px 18px;
+
+        border-radius: 14px;
+    }
+
+
+    .dashboard-topbar {
+        top: 80px;
+
+        left: 15px;
+
+        right: 15px;
+    }
+
+
+    .dashboard-header h1 {
+        font-size: 28px;
+    }
+
+
+    .analysis-grid,
+    .section-grid,
+    .score-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .metric-item,
+    .score-item {
+        gap: 10px;
+    }
+
+
+    .dashboard-actions {
+        flex-direction: column;
+    }
+
+
+    .dashboard-actions .button {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+
+    /* Upload page */
+
+    .analysis-container {
+        width: calc(100% - 30px);
+
+        margin: 40px auto;
+
+        padding: 25px 20px;
+    }
+
+    .analysis-container h1 {
+        font-size: 28px;
+    }
+
+
+    .analysis-actions {
+        flex-direction: column;
+    }
+
+    .analysis-actions .button {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   HOME PAGE
+   ========================================================= */
+
+.hero {
+    text-align: center;
+
+    padding: 70px 20px 40px;
+}
+
+.hero h1 {
+    margin-bottom: 15px;
+
+    font-size: 40px;
+}
+
+.hero p {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    color: #666;
+}
+
+
+.options {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    flex-wrap: wrap;
+
+    max-width: 1000px;
+
+    margin: 20px auto 60px;
+
+    padding: 20px;
+}
+
+
+.card {
+    width: 420px;
+
+    padding: 35px 30px;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+    text-align: center;
+}
+
+
+.card .icon {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+
+.card h2 {
+    margin-bottom: 12px;
+}
+
+
+.card p {
+    color: #666;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+}
+
+
+@media (max-width: 700px) {
+
+    .hero {
+        padding: 50px 20px 30px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .options {
+        margin-bottom: 40px;
+
+        padding: 15px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   HOME PAGE CARD HOVER
+   ========================================================= */
+
+.card {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.12);
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   SCROLLABLE SKILL LISTS
+   ========================================================= */
+
+.skill-list {
+    max-height: 180px;
+
+    overflow-y: auto;
+
+    padding: 10px 15px;
+
+    border-radius: 8px;
+}
+
+
+/* Scrollbar */
+
+.skill-list::-webkit-scrollbar {
+    width: 7px;
+}
+
+.skill-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+
+    border-radius: 10px;
+}
+
+.skill-list::-webkit-scrollbar-thumb {
+    background: #bbb;
+
+    border-radius: 10px;
+}
+
+.skill-list::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+
+/* =========================================================
+   END
+   ========================================================= */
+   /* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+
+.about-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 55px 40px 70px;
+    text-align: center;
+}
+
+.about-section > h1 {
+    font-size: 38px;
+    color: #17365d;
+    margin-bottom: 18px;
+}
+
+.about-intro {
+    max-width: 850px;
+    margin: 0 auto 45px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #52606d;
+}
+
+
+/* ============================================================
+   ABOUT CONTENT CARDS
+   ============================================================ */
+
+.about-content {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin: 25px auto;
+    max-width: 900px;
+    text-align: left;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e7ebf0;
+}
+
+.about-content h2 {
+    color: #17365d;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.about-content p {
+    color: #52606d;
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 8px 0;
+}
+
+
+/* ============================================================
+   TECHNOLOGIES SECTION
+   ============================================================ */
+
+.technology-section {
+    padding-top: 20px;
+}
+
+.technology-section .about-content {
+    text-align: center;
+}
+
+.technology-section p {
+    font-weight: 500;
+    color: #2856a6;
+}
+
+
+/* ============================================================
+   MOBILE RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    .about-section {
+        padding: 40px 20px 55px;
+    }
+
+    .about-section > h1 {
+        font-size: 30px;
+    }
+
+    .about-intro {
+        font-size: 15px;
+    }
+
+    .about-content {
+        padding: 22px;
+    }
+
+    .about-content h2 {
+        font-size: 21px;
+    }
+
+    .about-content p {
+        font-size: 14px;
+    }
+
+}
+/* ============================================================
+   DARK / LIGHT THEME
+   ============================================================ */
+
+.theme-toggle {
+    border: 1px solid #d9dee7;
+    background: #ffffff;
+    color: #17365d;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 18px;
+}
+
+.theme-toggle:hover {
+    background: #f1f4f8;
+}
+/* DARK THEME */
+body.dark-theme {
+    background: #121826;
+    color: #e8edf5;
+}
+body.dark-theme .navbar {
+    background: #1b2433;
+}
+body.dark-theme .logo,
+body.dark-theme .nav-links a {
+    color: #ffffff;
+}
+body.dark-theme .hero h1,
+body.dark-theme .hero p,
+body.dark-theme .card h2,
+body.dark-theme .card p {
+    color: #f1f5f9;
+}
+body.dark-theme .card {
+    background: #1b2433;
+    border-color: #303b4d;
+}
+body.dark-theme footer {
+    background: #121826;
+    color: #c5cfdd;
+}
+body.dark-theme .theme-toggle {
+    background: #273449;
+    color: #ffffff;
+    border-color: #455268;
+}
+/* ============================================================
+   DARK THEME - TEXT VISIBILITY
+   ============================================================ */
+/* Main page */
+body.dark-theme {
+    background: #0f172a;
+    color: #e5e7eb;
+}
+/* Navbar */
+body.dark-theme .navbar {
+    background: #111827;
+    border-bottom: 1px solid #334155;
+}
+body.dark-theme .logo,
+body.dark-theme .nav-links a {
+    color: #f8fafc;
+}
+body.dark-theme .nav-links a:hover {
+    color: #93c5fd;
+}
+/* Back button */
+body.dark-theme .back-link,
+body.dark-theme .back-button,
+body.dark-theme a.back-link {
+    color: #e2e8f0;
+}
+/* Main headings */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6 {
+    color: #f8fafc;
+}
+/* Normal text */
+body.dark-theme p,
+body.dark-theme span,
+body.dark-theme label,
+body.dark-theme li {
+    color: #dbe4ee;
+}
+/* Cards / sections */
+body.dark-theme .card,
+body.dark-theme .analysis-card,
+body.dark-theme .result-card,
+body.dark-theme .upload-card,
+body.dark-theme .about-content,
+body.dark-theme .dashboard-card,
+body.dark-theme .section-card {
+    background: #1e293b;
+    color: #e5e7eb;
+    border-color: #334155;
+}
+/* Card headings */
+body.dark-theme .card h2,
+body.dark-theme .card h3,
+body.dark-theme .analysis-card h2,
+body.dark-theme .analysis-card h3,
+body.dark-theme .result-card h2,
+body.dark-theme .result-card h3,
+body.dark-theme .section-card h2,
+body.dark-theme .section-card h3 {
+    color: #f8fafc;
+}
+/* Resume Analysis boxes */
+body.dark-theme .analysis-item,
+body.dark-theme .analysis-box,
+body.dark-theme .metric-card,
+body.dark-theme .score-card,
+body.dark-theme .info-card {
+    background: #273449;
+    color: #e5e7eb;
+    border-color: #3b4a61;
+}
+/* Text inside analysis boxes */
+body.dark-theme .analysis-item *,
+body.dark-theme .analysis-box *,
+body.dark-theme .metric-card *,
+body.dark-theme .score-card *,
+body.dark-theme .info-card * {
+    color: #e5e7eb;
+}
+/* Detected / Missing text */
+body.dark-theme .detected,
+body.dark-theme .success,
+body.dark-theme .status-success {
+    color: #86efac;
+}
+body.dark-theme .missing,
+body.dark-theme .error,
+body.dark-theme .status-error {
+    color: #fca5a5;
+}
+/* Upload area */
+body.dark-theme .upload-area,
+body.dark-theme .file-upload,
+body.dark-theme .drop-zone {
+    background: #1e293b;
+    border-color: #64748b;
+    color: #e5e7eb;
+}
+/* File name */
+body.dark-theme .file-name {
+    color: #f8fafc;
+}
+/* Buttons */
+body.dark-theme button {
+    color: #ffffff;
+}
+body.dark-theme .theme-toggle {
+    background: #273449;
+    color: #ffffff;
+    border-color: #475569;
+}
+/* Links */
+body.dark-theme a {
+    color: #93c5fd;
+}
+body.dark-theme a:hover {
+    color: #bfdbfe;
+}
+/* Tables */
+body.dark-theme table {
+    background: #1e293b;
+    color: #e5e7eb;
+}
+body.dark-theme th {
+    background: #273449;
+    color: #f8fafc;
+}
+body.dark-theme td {
+    color: #e5e7eb;
+    border-color: #475569;
+}
+/* Inputs / textareas */
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select {
+    background: #1e293b;
+    color: #f8fafc;
+    border-color: #475569;
+}
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder {
+    color: #94a3b8;
+}
+/* Footer */
+body.dark-theme footer {
+    background: #0f172a;
+    color: #cbd5e1;
+}
+body.dark-theme footer * {
+    color: #cbd5e1;
+}
+/* Strong / bold text */
+body.dark-theme strong,
+body.dark-theme b {
+    color: #f8fafc;
+}
+/* ============================================================
+   GLOBAL DARK THEME
+   Applies to all application pages
+   ============================================================ */
+/* Page background */
+html.dark-theme,
+body.dark-theme {
+    background: #0f172a !important;
+    color: #e5e7eb !important;
+}
+/* Main text */
+body.dark-theme p,
+body.dark-theme span,
+body.dark-theme label,
+body.dark-theme li,
+body.dark-theme div {
+    color: #e5e7eb;
+}
+/* Headings */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6 {
+    color: #f8fafc;
+}
+/* Links */
+body.dark-theme a {
+    color: #93c5fd;
+}
+body.dark-theme a:hover {
+    color: #bfdbfe;
+}
+/* ============================================================
+   ATS DASHBOARD
+   ============================================================ */
+body.dark-theme .analysis-container {
+    background: #0f172a !important;
+    color: #e5e7eb !important;
+}
+body.dark-theme .dashboard-card,
+body.dark-theme .ats-score-card,
+body.dark-theme .metric-item,
+body.dark-theme .score-item {
+    background: #1e293b !important;
+    color: #e5e7eb !important;
+    border-color: #334155 !important;
+}
+body.dark-theme .dashboard-card h2,
+body.dark-theme .ats-score-card h2 {
+    color: #f8fafc !important;
+}
+body.dark-theme .dashboard-header h1 {
+    color: #f8fafc !important;
+}
+body.dark-theme .dashboard-header p {
+    color: #cbd5e1 !important;
+}
+body.dark-theme .resume-file {
+    background: #273449 !important;
+    color: #f8fafc !important;
+}
+body.dark-theme .ats-score {
+    color: #f8fafc !important;
+}
+body.dark-theme .ats-status {
+    color: #cbd5e1 !important;
+}
+body.dark-theme .metric-item span,
+body.dark-theme .score-item span {
+    color: #e5e7eb !important;
+}
+body.dark-theme .metric-item strong,
+body.dark-theme .score-item strong {
+    color: #f8fafc !important;
+}
+body.dark-theme .status-good,
+body.dark-theme .status-success,
+body.dark-theme .success-item {
+    color: #86efac !important;
+}
+body.dark-theme .status-bad,
+body.dark-theme .status-error {
+    color: #fca5a5 !important;
+}
+body.dark-theme .warning-card {
+    background: #1e293b !important;
+}
+body.dark-theme .warning-item {
+    color: #fcd34d !important;
+}
+body.dark-theme .recommendation-card {
+    background: #1e293b !important;
+}
+body.dark-theme .recommendation-item {
+    color: #e5e7eb !important;
+}
+body.dark-theme .dashboard-topbar a {
+    color: #93c5fd !important;
+}
+/* ============================================================
+   ATS UPLOAD / RESULT PAGE
+   ============================================================ */
+body.dark-theme .upload-card,
+body.dark-theme .result-card,
+body.dark-theme .analysis-card {
+    background: #1e293b !important;
+    color: #e5e7eb !important;
+}
+body.dark-theme .upload-card h1,
+body.dark-theme .upload-card h2,
+body.dark-theme .result-card h1,
+body.dark-theme .result-card h2,
+body.dark-theme .analysis-card h1,
+body.dark-theme .analysis-card h2 {
+    color: #f8fafc !important;
+}
+body.dark-theme .upload-card p,
+body.dark-theme .result-card p,
+body.dark-theme .analysis-card p {
+    color: #cbd5e1 !important;
+}
+/* ============================================================
+   JOB MATCHER PAGE
+   ============================================================ */
+body.dark-theme .job-matcher-page {
+    background: #0f172a !important;
+    color: #e5e7eb !important;
+}
+body.dark-theme .job-matcher-header h1 {
+    color: #f8fafc !important;
+}
+body.dark-theme .job-matcher-header p {
+    color: #cbd5e1 !important;
+}
+body.dark-theme .job-matcher-topbar a {
+    color: #93c5fd !important;
+}
+body.dark-theme .matcher-card {
+    background: #1e293b !important;
+    color: #e5e7eb !important;
+    border-color: #334155 !important;
+}
+body.dark-theme .matcher-card h2 {
+    color: #f8fafc !important;
+}
+body.dark-theme .matcher-card > p {
+    color: #cbd5e1 !important;
+}
+body.dark-theme .resume-upload-box,
+body.dark-theme .jd-upload-box {
+    background: #1e293b !important;
+    border-color: #64748b !important;
+    color: #e5e7eb !important;
+}
+body.dark-theme .resume-upload-box:hover,
+body.dark-theme .jd-upload-box:hover {
+    background: #273449 !important;
+    border-color: #93c5fd !important;
+}
+body.dark-theme .resume-upload-text,
+body.dark-theme .jd-upload-text {
+    color: #f8fafc !important;
+}
+body.dark-theme .resume-upload-subtext,
+body.dark-theme .resume-upload-name,
+body.dark-theme .jd-upload-name {
+    color: #cbd5e1 !important;
+}
+body.dark-theme .jd-paste-box {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #64748b !important;
+}
+body.dark-theme .jd-paste-box::placeholder {
+    color: #94a3b8 !important;
+}
+body.dark-theme .jd-method-button {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+}
+/* ============================================================
+   JOB MATCH RESULT PAGE
+   ============================================================ */
+body.dark-theme .job-result-page {
+    background: #0f172a !important;
+    color: #e5e7eb !important;
+}
+body.dark-theme .job-result-topbar a {
+    color: #93c5fd !important;
+}
+body.dark-theme .result-header h1 {
+    color: #f8fafc !important;
+}
+body.dark-theme .result-header p {
+    color: #cbd5e1 !important;
+}
+body.dark-theme .role-badge {
+    background: #273449 !important;
+    color: #f8fafc !important;
+}
+body.dark-theme .score-card,
+body.dark-theme .skill-card,
+body.dark-theme .recommendation-card,
+body.dark-theme .course-card {
+    background: #1e293b !important;
+    color: #e5e7eb !important;
+    border-color: #334155 !important;
+}
+body.dark-theme .score-card h3,
+body.dark-theme .skill-card h2,
+body.dark-theme .recommendation-card h2,
+body.dark-theme .course-card h2 {
+    color: #f8fafc !important;
+}
+body.dark-theme .skill-count {
+    color: #cbd5e1 !important;
+}
+body.dark-theme .skill-item {
+    border-color: #475569 !important;
+    color: #e5e7eb !important;
+}
+body.dark-theme .matched {
+    color: #86efac !important;
+}
+body.dark-theme .missing {
+    color: #fca5a5 !important;
+}
+body.dark-theme .recommendation-table,
+body.dark-theme .course-table {
+    background: #1e293b !important;
+    color: #e5e7eb !important;
+}
+body.dark-theme .recommendation-table th,
+body.dark-theme .course-table th {
+    background: #273449 !important;
+    color: #f8fafc !important;
+}
+body.dark-theme .recommendation-table td,
+body.dark-theme .course-table td {
+    background: #1e293b !important;
+    color: #e5e7eb !important;
+    border-color: #475569 !important;
+}
+body.dark-theme .course-table a,
+body.dark-theme .recommendation-table a {
+    color: #93c5fd !important;
+}
+body.dark-theme .result-footer {
+    color: #cbd5e1 !important;
+}
+
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+body.dark-theme .about-section {
+    background: #0f172a !important;
+}
+body.dark-theme .about-content {
+    background: #1e293b !important;
+    color: #e5e7eb !important;
+    border-color: #334155 !important;
+}
+body.dark-theme .about-content h2 {
+    color: #f8fafc !important;
+}
+body.dark-theme .about-content p {
+    color: #cbd5e1 !important;
+}
+body.dark-theme .technology-section p {
+    color: #93c5fd !important;
+}
+/* ============================================================
+   THEME BUTTON
+   ============================================================ */
+body.dark-theme .theme-toggle {
+    background: #273449 !important;
+    color: #ffffff !important;
+    border-color: #475569 !important;
+}
+body.dark-theme .theme-toggle:hover {
+    background: #334155 !important;
+}
+/* ============================================================
+   FOOTER
+   ============================================================ */
+body.dark-theme footer {
+    background: #0f172a !important;
+    color: #cbd5e1 !important;
+}
+body.dark-theme footer p {
+    color: #cbd5e1 !important;
+}
+/* ============================================================
+   GLOBAL DARK THEME
+   ============================================================ */
+html.dark-theme,
+body.dark-theme {
+    background: #0f172a !important;
+    color: #f8fafc !important;
+}
+/* ============================================================
+   BODY
+   ============================================================ */
+
+body.dark-theme {
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+}
+/* ============================================================
+   HEADINGS + TEXT
+   ============================================================ */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6,
+body.dark-theme p,
+body.dark-theme span,
+body.dark-theme label,
+body.dark-theme li,
+body.dark-theme strong,
+body.dark-theme b {
+    color: #f8fafc !important;
+}
+/* ============================================================
+   LINKS
+   ============================================================ */
+body.dark-theme a {
+    color: #93c5fd !important;
+}
+
+body.dark-theme a:hover {
+    color: #bfdbfe !important;
+}
+/* ============================================================
+   MAIN WHITE CONTAINERS
+   ============================================================ */
+body.dark-theme .container,
+body.dark-theme .card,
+body.dark-theme .section,
+body.dark-theme .content,
+body.dark-theme .result-card,
+body.dark-theme .analysis-card,
+body.dark-theme .upload-card,
+body.dark-theme .matcher-card,
+body.dark-theme .dashboard-card {
+    background-color: #1e293b !important;
+    color: #f8fafc !important;
+}
+/* ============================================================
+   FORCE CHILD TEXT INSIDE CARDS
+   ============================================================ */
+body.dark-theme .container *,
+body.dark-theme .card *,
+body.dark-theme .section *,
+body.dark-theme .content *,
+body.dark-theme .result-card *,
+body.dark-theme .analysis-card *,
+body.dark-theme .upload-card *,
+body.dark-theme .matcher-card *,
+body.dark-theme .dashboard-card * {
+    color: #f8fafc !important;
+}
+/* ============================================================
+   COMMON WHITE BACKGROUNDS
+   ============================================================ */
+body.dark-theme [style*="background: white"],
+body.dark-theme [style*="background:white"],
+body.dark-theme [style*="background-color: white"],
+body.dark-theme [style*="background-color:white"],
+body.dark-theme [style*="background: #fff"],
+body.dark-theme [style*="background:#fff"],
+body.dark-theme [style*="background-color: #fff"],
+body.dark-theme [style*="background-color:#fff"] {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+/* ============================================================
+   WHITE CARDS / PANELS
+   ============================================================ */
+body.dark-theme .white-card,
+body.dark-theme .panel,
+body.dark-theme .box,
+body.dark-theme .result-box,
+body.dark-theme .info-card,
+body.dark-theme .score-card,
+body.dark-theme .skill-card,
+body.dark-theme .recommendation-card {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+/* ============================================================
+   ATS RESULT PAGE
+   ============================================================ */
+body.dark-theme .ats-result,
+body.dark-theme .ats-analysis,
+body.dark-theme .resume-analysis,
+body.dark-theme .detailed-analysis,
+body.dark-theme .resume-sections {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+/* ============================================================
+   JOB MATCHER RESULT
+   ============================================================ */
+body.dark-theme .matching-skills,
+body.dark-theme .missing-skills,
+body.dark-theme .recommendations,
+body.dark-theme .future-insights,
+body.dark-theme .learning-resources,
+body.dark-theme .courses,
+body.dark-theme .course-section {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+/* ============================================================
+   TABLES
+   ============================================================ */
+body.dark-theme table {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+}
+body.dark-theme thead,
+body.dark-theme th {
+    background: #334155 !important;
+    color: #ffffff !important;
+}
+body.dark-theme tbody,
+body.dark-theme tr,
+body.dark-theme td {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+}
+/* ============================================================
+   INPUTS
+   ============================================================ */
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border: 1px solid #64748b !important;
+}
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder {
+    color: #94a3b8 !important;
+}
+/* ============================================================
+   SELECT DROPDOWN
+   ============================================================ */
+body.dark-theme select option {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+/* ============================================================
+   FILE UPLOAD AREAS
+   ============================================================ */
+body.dark-theme .upload-area,
+body.dark-theme .drop-zone,
+body.dark-theme .file-upload,
+body.dark-theme .upload-box {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #64748b !important;
+}
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+body.dark-theme button {
+    color: #ffffff !important;
+}
+/* ============================================================
+   POPUPS / MODALS
+   ============================================================ */
+/*
+   This is important for your low-visibility popup problem.
+*/
+body.dark-theme .modal,
+body.dark-theme .modal-content,
+body.dark-theme .popup,
+body.dark-theme .popup-content,
+body.dark-theme .dialog,
+body.dark-theme .dialog-content,
+body.dark-theme .alert,
+body.dark-theme .notification,
+body.dark-theme .toast {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+}
+/* Popup text */
+body.dark-theme .modal *,
+body.dark-theme .modal-content *,
+body.dark-theme .popup *,
+body.dark-theme .popup-content *,
+body.dark-theme .dialog *,
+body.dark-theme .dialog-content *,
+body.dark-theme .alert *,
+body.dark-theme .notification *,
+body.dark-theme .toast * {
+    color: #f8fafc !important;
+}
+/* ============================================================
+   POPUP OVERLAY
+   ============================================================ */
+body.dark-theme .modal-backdrop,
+body.dark-theme .overlay,
+body.dark-theme .popup-overlay {
+    background: rgba(0, 0, 0, 0.70) !important;
+}
+/* ============================================================
+   CLOSE BUTTON
+   ============================================================ */
+body.dark-theme .close,
+body.dark-theme .close-btn,
+body.dark-theme .modal-close {
+    color: #ffffff !important;
+}
+/* ============================================================
+   SUCCESS MESSAGE
+   ============================================================ */
+body.dark-theme .success,
+body.dark-theme .success-message {
+    color: #86efac !important;
+}
+/* ============================================================
+   ERROR MESSAGE
+   ============================================================ */
+body.dark-theme .error,
+body.dark-theme .error-message {
+    color: #fca5a5 !important;
+}
+/* ============================================================
+   WARNING MESSAGE
+   ============================================================ */
+body.dark-theme .warning,
+body.dark-theme .warning-message {
+    color: #fde68a !important;
+}
+/* ============================================================
+   MUTED TEXT
+   ============================================================ */
+body.dark-theme .muted,
+body.dark-theme .subtitle,
+body.dark-theme .description,
+body.dark-theme .secondary-text {
+    color: #cbd5e1 !important;
+}
+/* ============================================================
+   FOOTER
+   ============================================================ */
+body.dark-theme footer {
+    background: #0f172a !important;
+    color: #cbd5e1 !important;
+    border-color: #334155 !important;
+}
+body.dark-theme footer * {
+    color: #cbd5e1 !important;
+}
+/* ============================================================
+   FINAL DARK THEME FIX
+   DO NOT REMOVE EXISTING CSS
+   ============================================================ */
+/* ------------------------------------------------------------
+   PAGE + SCROLLBAR
+   ------------------------------------------------------------ */
+html.dark-theme {
+    background: #0f172a !important;
+    color-scheme: dark !important;
+}
+body.dark-theme {
+    background: #0f172a !important;
+    color: #f8fafc !important;
+}
+/* Chrome / Edge scrollbar */
+body.dark-theme::-webkit-scrollbar {
+    width: 12px;
+}
+body.dark-theme::-webkit-scrollbar-track {
+    background: #0f172a !important;
+}
+body.dark-theme::-webkit-scrollbar-thumb {
+    background: #475569 !important;
+    border-radius: 10px;
+    border: 2px solid #0f172a;
+}
+body.dark-theme::-webkit-scrollbar-thumb:hover {
+    background: #64748b !important;
+}
+/* ------------------------------------------------------------
+   ALL MAJOR PAGE WRAPPERS
+   ------------------------------------------------------------ */
+body.dark-theme main,
+body.dark-theme .main,
+body.dark-theme .page,
+body.dark-theme .page-container,
+body.dark-theme .main-container,
+body.dark-theme .content-wrapper {
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+}
+/* ------------------------------------------------------------
+   RESUME UPLOADED SUCCESS PAGE
+   ------------------------------------------------------------ */
+body.dark-theme .upload-success,
+body.dark-theme .success-container,
+body.dark-theme .success-card,
+body.dark-theme .uploaded-card,
+body.dark-theme .upload-result {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+/* Make everything INSIDE the success card visible */
+body.dark-theme .upload-success *,
+body.dark-theme .success-container *,
+body.dark-theme .success-card *,
+body.dark-theme .uploaded-card *,
+body.dark-theme .upload-result * {
+    color: #f8fafc !important;
+}
+/* File name */
+body.dark-theme .filename,
+body.dark-theme .file-name,
+body.dark-theme .uploaded-file,
+body.dark-theme .resume-name {
+    color: #e2e8f0 !important;
+}
+/* ------------------------------------------------------------
+   ATS RESULT PAGE
+   ------------------------------------------------------------ */
+body.dark-theme .ats-result-container,
+body.dark-theme .ats-result-page,
+body.dark-theme .analysis-result,
+body.dark-theme .analysis-container {
+    background: #0f172a !important;
+    color: #f8fafc !important;
+}
+/* Main result cards */
+body.dark-theme .ats-result-container > div,
+body.dark-theme .analysis-result > div,
+body.dark-theme .analysis-container > div {
+    color: #f8fafc !important;
+}
+/* ------------------------------------------------------------
+   WHITE RESULT CARDS
+   ------------------------------------------------------------ */
+body.dark-theme .result-card,
+body.dark-theme .analysis-card,
+body.dark-theme .score-card,
+body.dark-theme .resume-analysis-card,
+body.dark-theme .resume-sections-card,
+body.dark-theme .detailed-analysis-card {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+/* ------------------------------------------------------------
+   HEADINGS
+   ------------------------------------------------------------ */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6 {
+    color: #f8fafc !important;
+}
+/* ------------------------------------------------------------
+   NORMAL TEXT
+   ------------------------------------------------------------ */
+body.dark-theme p,
+body.dark-theme label,
+body.dark-theme li,
+body.dark-theme td,
+body.dark-theme th {
+    color: #f8fafc !important;
+}
+/* ------------------------------------------------------------
+   LEARNING RESOURCES
+   ------------------------------------------------------------ */
+/*
+   IMPORTANT:
+   Resource/course names should NOT become white if they
+   are displayed on a white/light resource card.
+*/
+body.dark-theme .learning-resources {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+body.dark-theme .learning-resources a {
+    color: #60a5fa !important;
+}
+body.dark-theme .learning-resources a:hover {
+    color: #93c5fd !important;
+}
+/* Course cards */
+body.dark-theme .course-card,
+body.dark-theme .course-item,
+body.dark-theme .resource-card,
+body.dark-theme .resource-item {
+    background: #334155 !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+}
+/* Course title */
+body.dark-theme .course-card h3,
+body.dark-theme .course-card h4,
+body.dark-theme .course-card p,
+body.dark-theme .course-item h3,
+body.dark-theme .course-item h4,
+body.dark-theme .course-item p,
+body.dark-theme .resource-card h3,
+body.dark-theme .resource-card h4,
+body.dark-theme .resource-card p {
+    color: #f8fafc !important;
+}
+/* Course/resource links */
+body.dark-theme .course-card a,
+body.dark-theme .course-item a,
+body.dark-theme .resource-card a,
+body.dark-theme .resource-item a {
+    color: #60a5fa !important;
+}
+/* ------------------------------------------------------------
+   ANY COURSE LINK
+   ------------------------------------------------------------ */
+body.dark-theme a.course-link,
+body.dark-theme a.resource-link,
+body.dark-theme .course-name a,
+body.dark-theme .resource-name a {
+    color: #60a5fa !important;
+}
+/* ------------------------------------------------------------
+   TABLES
+   ------------------------------------------------------------ */
+body.dark-theme table {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+body.dark-theme th {
+    background: #334155 !important;
+    color: #ffffff !important;
+}
+body.dark-theme td {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+}
+/* ------------------------------------------------------------
+   POPUPS / MODALS
+   ------------------------------------------------------------ */
+body.dark-theme .modal,
+body.dark-theme .modal-content,
+body.dark-theme .popup,
+body.dark-theme .popup-content,
+body.dark-theme .dialog,
+body.dark-theme .dialog-content {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+}
+body.dark-theme .modal *,
+body.dark-theme .modal-content *,
+body.dark-theme .popup *,
+body.dark-theme .popup-content *,
+body.dark-theme .dialog *,
+body.dark-theme .dialog-content * {
+    color: #f8fafc !important;
+}
+/* ------------------------------------------------------------
+   BUTTONS
+   ------------------------------------------------------------ */
+body.dark-theme button {
+    color: #ffffff !important;
+}
+/* ------------------------------------------------------------
+   INPUTS
+   ------------------------------------------------------------ */
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #64748b !important;
+}
+/* Dark browser scrollbar */
+html.dark-theme {
+    scrollbar-color: #475569 #0f172a;
+    scrollbar-width: auto;
+}
+/* =========================================================
+   GLOBAL DARK THEME FIX
+   ========================================================= */
+html.dark-theme,
+body.dark-theme {
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+}
+/* Main text */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6,
+body.dark-theme p,
+body.dark-theme label,
+body.dark-theme span,
+body.dark-theme div,
+body.dark-theme li {
+    color: inherit;
+}
+/* Links */
+body.dark-theme a {
+    color: #60a5fa;
+}
+body.dark-theme a:hover {
+    color: #93c5fd;
+}
+/* =========================================================
+   CARDS / POPUPS / UPLOAD RESULT
+   ========================================================= */
+body.dark-theme .card,
+body.dark-theme .container-card,
+body.dark-theme .upload-card,
+body.dark-theme .result-card,
+body.dark-theme .success-card,
+body.dark-theme .modal,
+body.dark-theme .popup,
+body.dark-theme .upload-success,
+body.dark-theme .analysis-card {
+    background-color: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #334155 !important;
+}
+/* Headings inside cards */
+body.dark-theme .card h1,
+body.dark-theme .card h2,
+body.dark-theme .card h3,
+body.dark-theme .card h4,
+body.dark-theme .upload-card h1,
+body.dark-theme .upload-card h2,
+body.dark-theme .upload-card h3,
+body.dark-theme .upload-card h4,
+body.dark-theme .success-card h1,
+body.dark-theme .success-card h2,
+body.dark-theme .success-card h3,
+body.dark-theme .success-card h4,
+body.dark-theme .analysis-card h1,
+body.dark-theme .analysis-card h2,
+body.dark-theme .analysis-card h3,
+body.dark-theme .analysis-card h4 {
+    color: #f8fafc !important;
+}
+/* Normal text inside cards */
+body.dark-theme .card p,
+body.dark-theme .card span,
+body.dark-theme .upload-card p,
+body.dark-theme .upload-card span,
+body.dark-theme .success-card p,
+body.dark-theme .success-card span,
+body.dark-theme .analysis-card p,
+body.dark-theme .analysis-card span {
+    color: #cbd5e1 !important;
+}
+/* =========================================================
+   UPLOADED FILE NAME
+   ========================================================= */
+body.dark-theme .filename,
+body.dark-theme .file-name,
+body.dark-theme .uploaded-file,
+body.dark-theme .resume-name {
+    background-color: #334155 !important;
+    color: #f8fafc !important;
+}
+/* =========================================================
+   SUCCESS MESSAGE
+   ========================================================= */
+body.dark-theme .success-message,
+body.dark-theme .alert-success {
+    background-color: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+}
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+body.dark-theme button,
+body.dark-theme .btn {
+    color: #ffffff;
+}
+body.dark-theme .primary-btn,
+body.dark-theme .analyze-btn,
+body.dark-theme .preview-btn {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+}
+body.dark-theme .primary-btn:hover,
+body.dark-theme .analyze-btn:hover,
+body.dark-theme .preview-btn:hover {
+    background-color: #1d4ed8 !important;
+}
+/* =========================================================
+   INPUTS / SELECTS / TEXTAREAS
+   ========================================================= */
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select {
+    background-color: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+}
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder {
+    color: #94a3b8 !important;
+}
+/* =========================================================
+   DROPDOWNS
+   ========================================================= */
+body.dark-theme select option {
+    background-color: #1e293b;
+    color: #f8fafc;
+}
+/* =========================================================
+   TABLES
+   ========================================================= */
+body.dark-theme table {
+    background-color: #1e293b !important;
+    color: #f8fafc !important;
+}
+body.dark-theme th {
+    background-color: #334155 !important;
+    color: #f8fafc !important;
+}
+body.dark-theme td {
+    color: #e2e8f0 !important;
+    border-color: #475569 !important;
+}
+/* =========================================================
+   LEARNING RESOURCES
+   ========================================================= */
+body.dark-theme .learning-resource,
+body.dark-theme .resource-card,
+body.dark-theme .course-card,
+body.dark-theme .recommendation-card {
+    background-color: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #334155 !important;
+}
+body.dark-theme .learning-resource h3,
+body.dark-theme .learning-resource h4,
+body.dark-theme .resource-card h3,
+body.dark-theme .course-card h3,
+body.dark-theme .recommendation-card h3 {
+    color: #f8fafc !important;
+}
+body.dark-theme .learning-resource p,
+body.dark-theme .resource-card p,
+body.dark-theme .course-card p,
+body.dark-theme .recommendation-card p {
+    color: #cbd5e1 !important;
+}
+body.dark-theme .learning-resource a,
+body.dark-theme .resource-card a,
+body.dark-theme .course-card a {
+    color: #60a5fa !important;
+}
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+body.dark-theme::-webkit-scrollbar {
+    width: 10px;
+}
+body.dark-theme::-webkit-scrollbar-track {
+    background: #0f172a !important;
+}
+body.dark-theme::-webkit-scrollbar-thumb {
+    background: #475569 !important;
+    border-radius: 10px;
+}
+body.dark-theme::-webkit-scrollbar-thumb:hover {
+    background: #64748b !important;
+}
+/* Firefox */
+body.dark-theme {
+    scrollbar-color: #475569 #0f172a;
+    scrollbar-width: thin;
+}
+/* =========================================================
+   FOOTER
+   ========================================================= */
+body.dark-theme footer {
+    background-color: #0f172a !important;
+    color: #cbd5e1 !important;
+}
+body.dark-theme footer p,
+body.dark-theme footer span {
+    color: #cbd5e1 !important;
+}
+/* ============================================================
+   RESUME UPLOADED SUCCESS PAGE - DARK THEME
+   ============================================================ */
+/* Main white upload-success card */
+body.dark-theme .upload-success-container {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+/* If your page uses .upload-container instead */
+body.dark-theme .upload-container {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+/* Main heading */
+body.dark-theme .upload-success-container h1,
+body.dark-theme .upload-success-container h2,
+body.dark-theme .upload-container h1,
+body.dark-theme .upload-container h2 {
+    color: #f8fafc !important;
+}
+/* Success text */
+body.dark-theme .upload-success-container p,
+body.dark-theme .upload-container p {
+    color: #cbd5e1 !important;
+}
+/* Success message box */
+body.dark-theme .success-message {
+    background: #334155 !important;
+    color: #f8fafc !important;
+}
+/* Uploaded file box */
+body.dark-theme .file-display,
+body.dark-theme .uploaded-file {
+    background: #334155 !important;
+    color: #f8fafc !important;
+}
+/* Uploaded filename */
+body.dark-theme .file-display *,
+body.dark-theme .uploaded-file * {
+    color: #f8fafc !important;
+}
+/* Buttons */
+body.dark-theme .preview-btn,
+body.dark-theme .analyze-btn {
+    color: #ffffff !important;
+}
+.circle-btn{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+/* =========================================================
+   THEME SYSTEM
+   ========================================================= */
+/* ---------- LIGHT THEME ---------- */
+html,
+body {
+    background: #f5f7fb;
+    color: #172b4d;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+body {
+    background: #f5f7fb;
+    color: #172b4d;
+}
+/* ---------- THEME BUTTON ---------- */
+#themeToggle {
+    border: none;
+    background: transparent;
+    color: #172b4d;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+#themeToggle:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+/* =========================================================
+   DARK THEME
+   ========================================================= */
+html.dark-theme,
+html.dark-theme body,
+body.dark-theme {
+
+    background: #0f172a !important;
+    color: #f8fafc !important;
+}
+/* ---------- COMMON TEXT ---------- */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6,
+body.dark-theme p,
+body.dark-theme span,
+body.dark-theme label,
+body.dark-theme li,
+body.dark-theme td,
+body.dark-theme th {
+
+    color: #f8fafc;
+}
+/* ---------- LINKS ---------- */
+body.dark-theme a {
+    color: #93c5fd;
+}
+body.dark-theme a:hover {
+    color: #bfdbfe;
+}
+/* ---------- NAVBAR ---------- */
+body.dark-theme nav,
+body.dark-theme .navbar,
+body.dark-theme header {
+
+    background: #0f172a !important;
+    color: #f8fafc !important;
+    border-color: #334155 !important;
+}
+/* ---------- CARDS ---------- */
+body.dark-theme .card,
+body.dark-theme .container-card,
+body.dark-theme .upload-card,
+body.dark-theme .result-card,
+body.dark-theme .analysis-card,
+body.dark-theme .section-card,
+body.dark-theme .popup,
+body.dark-theme .modal,
+body.dark-theme .recommendation-card {
+
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #334155 !important;
+}
+/* ---------- INPUTS ---------- */
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select {
+
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+}
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder {
+
+    color: #94a3b8 !important;
+}
+/* ---------- FILE UPLOAD AREA ---------- */
+body.dark-theme .upload-area,
+body.dark-theme .drop-zone,
+body.dark-theme .file-upload {
+
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #64748b !important;
+}
+/* ---------- TABLES ---------- */
+body.dark-theme table {
+
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+body.dark-theme th {
+
+    background: #334155 !important;
+    color: #ffffff !important;
+}
+body.dark-theme td {
+
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+}
+/* ---------- DROPDOWNS ---------- */
+body.dark-theme select,
+body.dark-theme option {
+
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+/* ---------- BUTTONS ---------- */
+body.dark-theme button {
+
+    color: #ffffff;
+}
+body.dark-theme #themeToggle {
+
+    background: transparent;
+    color: #f8fafc;
+}
+body.dark-theme #themeToggle:hover {
+
+    background: rgba(255, 255, 255, 0.08);
+}
+/* ---------- SUCCESS / MESSAGE BOX ---------- */
+body.dark-theme .success,
+body.dark-theme .success-message,
+body.dark-theme .alert-success {
+
+    background: #1e293b !important;
+    color: #86efac !important;
+    border-color: #22c55e !important;
+}
+/* ---------- ERROR MESSAGE ---------- */
+body.dark-theme .error,
+body.dark-theme .error-message,
+body.dark-theme .alert-error {
+
+    background: #3f1d1d !important;
+    color: #fecaca !important;
+}
+/* ---------- LEARNING RESOURCES ---------- */
+body.dark-theme .learning-resource,
+body.dark-theme .resource-card,
+body.dark-theme .course-card {
+
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+body.dark-theme .learning-resource a,
+body.dark-theme .resource-card a,
+body.dark-theme .course-card a {
+
+    color: #60a5fa !important;
+}
+/* ---------- POPUPS / MODALS ---------- */
+body.dark-theme .modal-content,
+body.dark-theme .popup-content {
+
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+/* ---------- FOOTER ---------- */
+body.dark-theme footer {
+
+    background: #0f172a !important;
+    color: #cbd5e1 !important;
+    border-color: #334155 !important;
+}
+/* ---------- PAGE TRANSITION ---------- */
+body,
+.card,
+.upload-card,
+.result-card,
+.analysis-card,
+.popup,
+.modal,
+footer,
+nav,
+header,
+input,
+textarea,
+select,
+table,
+td,
+th {
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+/* ============================================================
+   ATS CHECKER UPLOAD CARD - THEME FIX
+   Only targets the ATS checker upload card.
+   Does not change other page/card styles.
+   ============================================================ */
+/* Dark mode - outer ATS upload card */
+html.dark-theme .upload-card,
+body.dark-theme .upload-card {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border: 1px solid #334155 !important;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25) !important;
+}
+/* Dark mode - text inside the ATS upload card */
+html.dark-theme .upload-card h1,
+html.dark-theme .upload-card h2,
+html.dark-theme .upload-card h3,
+html.dark-theme .upload-card h4,
+html.dark-theme .upload-card label,
+html.dark-theme .upload-card p,
+html.dark-theme .upload-card span,
+body.dark-theme .upload-card h1,
+body.dark-theme .upload-card h2,
+body.dark-theme .upload-card h3,
+body.dark-theme .upload-card h4,
+body.dark-theme .upload-card label,
+body.dark-theme .upload-card p,
+body.dark-theme .upload-card span {
+    color: #f8fafc !important;
+}
+/* Dark mode - dashed resume selection area */
+html.dark-theme .upload-card .resume-upload-box,
+body.dark-theme .upload-card .resume-upload-box {
+    background: #1e293b !important;
+    border-color: #64748b !important;
+    color: #e5e7eb !important;
+}
+/* Dark mode - upload area hover */
+html.dark-theme .upload-card .resume-upload-box:hover,
+body.dark-theme .upload-card .resume-upload-box:hover {
+    background: #273449 !important;
+    border-color: #93c5fd !important;
+}
+/* Dark mode - upload area text */
+html.dark-theme .upload-card .resume-upload-text,
+html.dark-theme .upload-card .resume-upload-subtext,
+html.dark-theme .upload-card .resume-upload-name,
+body.dark-theme .upload-card .resume-upload-text,
+body.dark-theme .upload-card .resume-upload-subtext,
+body.dark-theme .upload-card .resume-upload-name {
+    color: #f8fafc !important;
+}
+/* Dark mode - supported format text */
+html.dark-theme .upload-card .supported-formats,
+body.dark-theme .upload-card .supported-formats {
+    color: #cbd5e1 !important;
+}
+/* =========================================================
+   RESUME UPLOADED RESULT CARD - THEME ADAPTIVE FIX
+   ========================================================= */
+/* ---------------- LIGHT THEME ---------------- */
+.upload-result-card {
+    background: #ffffff;
+    color: #172b4d;
+    border: 1px solid #e7ebf0;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+.upload-result-card h1 {
+    color: #172b4d;
+}
+.upload-result-card .upload-success {
+    color: #198754;
+}
+.upload-result-card .uploaded-file {
+    background: #f5f7fb;
+    color: #172b4d;
+}
+/* ---------------- DARK THEME ---------------- */
+html.dark-theme .upload-result-card,
+body.dark-theme .upload-result-card {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border: 1px solid #334155 !important;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25) !important;
+}
+/* Heading */
+html.dark-theme .upload-result-card h1,
+body.dark-theme .upload-result-card h1 {
+    color: #f8fafc !important;
+}
+/* Success message */
+html.dark-theme .upload-result-card .upload-success,
+body.dark-theme .upload-result-card .upload-success {
+    color: #86efac !important;
+}
+/* Uploaded file */
+html.dark-theme .upload-result-card .uploaded-file,
+body.dark-theme .upload-result-card .uploaded-file {
+    background: #334155 !important;
+    color: #f8fafc !important;
+}
+/* File text / icon */
+html.dark-theme .upload-result-card .uploaded-file *,
+body.dark-theme .upload-result-card .uploaded-file * {
+    color: #f8fafc !important;
+}
+/* Back button */
+html.dark-theme .result-back-button,
+body.dark-theme .result-back-button {
+    color: #93c5fd !important;
+}
+/* Buttons */
+html.dark-theme .upload-result-card .button,
+body.dark-theme .upload-result-card .button {
+    background: #2563eb !important;
+    color: #ffffff !important;
+}
+html.dark-theme .upload-result-card .button:hover,
+body.dark-theme .upload-result-card .button:hover {
+    background: #1d4ed8 !important;
+}
+/* ============================================================
+   FINAL DARK THEME FIX
+   ATS RESULT + JOB MATCH RESULT + POPUPS
+   ============================================================ */
+/* ---------- ATS RESULT INNER BOXES ---------- */
+body.dark-theme .warning-item {
+    background: #3b2f16 !important;
+    color: #fde68a !important;
+    border: 1px solid #6b541f !important;
+}
+body.dark-theme .recommendation-item {
+    background: #26354a !important;
+    color: #e5e7eb !important;
+    border: 1px solid #3b4d66 !important;
+}
+body.dark-theme .success-item {
+    background: #183524 !important;
+    color: #86efac !important;
+    border: 1px solid #285c3b !important;
+}
+/* ---------- ATS UPLOAD / SUCCESS PAGE ---------- */
+body.dark-theme .analysis-container {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border: 1px solid #334155 !important;
+}
+body.dark-theme .analysis-container h1,
+body.dark-theme .analysis-container h2,
+body.dark-theme .analysis-container h3 {
+    color: #f8fafc !important;
+}
+body.dark-theme .analysis-container p {
+    color: #cbd5e1 !important;
+}
+body.dark-theme .analysis-container .success-message {
+    background: #334155 !important;
+    color: #86efac !important;
+    border: 1px solid #475569 !important;
+}
+body.dark-theme .analysis-container .resume-file {
+    background: #334155 !important;
+    color: #f8fafc !important;
+    border: 1px solid #475569 !important;
+}
+/* ---------- JOB MATCH RESULT ---------- */
+body.dark-theme .job-result-page {
+    background: #0f172a !important;
+    color: #f8fafc !important;
+}
+body.dark-theme .job-result-container {
+    color: #f8fafc !important;
+}
+body.dark-theme .job-result-topbar a {
+    color: #93c5fd !important;
+}
+body.dark-theme .result-header h1 {
+    color: #f8fafc !important;
+}
+body.dark-theme .result-header p {
+    color: #cbd5e1 !important;
+}
+body.dark-theme .role-badge {
+    background: #273449 !important;
+    color: #f8fafc !important;
+}
+/* ---------- JOB MATCH SCORE CARDS ---------- */
+body.dark-theme .score-card {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border: 1px solid #334155 !important;
+}
+body.dark-theme .score-card h3 {
+    color: #cbd5e1 !important;
+}
+body.dark-theme .score-number {
+    color: #f8fafc !important;
+}
+/* ---------- MATCHING / MISSING SKILLS ---------- */
+body.dark-theme .skill-card {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border: 1px solid #334155 !important;
+}
+body.dark-theme .skill-card h2 {
+    color: #f8fafc !important;
+}
+body.dark-theme .skill-count {
+    color: #cbd5e1 !important;
+}
+body.dark-theme .skill-item {
+    color: #e5e7eb !important;
+    border-color: #475569 !important;
+}
+body.dark-theme .skill-item.matched,
+body.dark-theme .matched {
+    color: #86efac !important;
+}
+body.dark-theme .skill-item.missing,
+body.dark-theme .missing {
+    color: #fca5a5 !important;
+}
+/* ---------- MISSING SKILLS DROPDOWN ---------- */
+body.dark-theme .skill-dropdown {
+    background: #1e293b !important;
+    border-color: #475569 !important;
+}
+body.dark-theme .skill-dropdown summary {
+    background: #334155 !important;
+    color: #f8fafc !important;
+}
+body.dark-theme .skill-dropdown summary::after {
+    color: #cbd5e1 !important;
+}
+body.dark-theme .skill-list {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+}
+body.dark-theme .skill-list::-webkit-scrollbar-track {
+    background: #1e293b !important;
+}
+body.dark-theme .skill-list::-webkit-scrollbar-thumb {
+    background: #64748b !important;
+}
+/* ---------- RECOMMENDATIONS & FUTURE INSIGHTS ---------- */
+body.dark-theme .recommendation-card {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border: 1px solid #334155 !important;
+}
+body.dark-theme .recommendation-card h2 {
+    color: #f8fafc !important;
+}
+body.dark-theme .recommendation-table {
+    background: #1e293b !important;
+    color: #e5e7eb !important;
+}
+body.dark-theme .recommendation-table th {
+    background: #334155 !important;
+    color: #ffffff !important;
+}
+body.dark-theme .recommendation-table td {
+    background: #1e293b !important;
+    color: #e5e7eb !important;
+    border-color: #475569 !important;
+}
+/* ---------- LEARNING & CERTIFICATION RESOURCES ---------- */
+body.dark-theme .course-card {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border: 1px solid #334155 !important;
+}
+body.dark-theme .course-card h2 {
+    color: #f8fafc !important;
+}
+body.dark-theme .course-card p {
+    color: #cbd5e1 !important;
+}
+body.dark-theme .course-table {
+    background: #1e293b !important;
+    color: #e5e7eb !important;
+}
+body.dark-theme .course-table th {
+    background: #334155 !important;
+    color: #ffffff !important;
+}
+body.dark-theme .course-table td {
+    background: #1e293b !important;
+    color: #e5e7eb !important;
+    border-color: #475569 !important;
+}
+body.dark-theme .course-table a {
+    color: #60a5fa !important;
+}
+body.dark-theme .course-table a:hover {
+    color: #93c5fd !important;
+}
+body.dark-theme .free-badge {
+    background: #183524 !important;
+    color: #86efac !important;
+}
+/* ---------- POPUPS / MODALS ---------- */
+body.dark-theme .modal,
+body.dark-theme .modal-content,
+body.dark-theme .popup,
+body.dark-theme .popup-content,
+body.dark-theme .dialog,
+body.dark-theme .dialog-content,
+body.dark-theme .alert,
+body.dark-theme .notification,
+body.dark-theme .toast {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+    border: 1px solid #475569 !important;
+}
+body.dark-theme .modal *,
+body.dark-theme .modal-content *,
+body.dark-theme .popup *,
+body.dark-theme .popup-content *,
+body.dark-theme .dialog *,
+body.dark-theme .dialog-content *,
+body.dark-theme .alert *,
+body.dark-theme .notification *,
+body.dark-theme .toast * {
+    color: #f8fafc !important;
+}
+/* ---------- POPUP OVERLAY ---------- */
+body.dark-theme .modal-backdrop,
+body.dark-theme .overlay,
+body.dark-theme .popup-overlay {
+    background: rgba(0, 0, 0, 0.75) !important;
+}
+/* ---------- PAGE SCROLLBAR ---------- */
+html.dark-theme {
+    background: #0f172a !important;
+    scrollbar-color: #475569 #0f172a !important;
+}
+body.dark-theme {
+    background: #0f172a !important;
+    scrollbar-color: #475569 #0f172a !important;
+}
+body.dark-theme::-webkit-scrollbar {
+    width: 12px !important;
+}
+body.dark-theme::-webkit-scrollbar-track {
+    background: #0f172a !important;
+}
+body.dark-theme::-webkit-scrollbar-thumb {
+    background: #475569 !important;
+    border-radius: 10px !important;
+    border: 2px solid #0f172a !important;
+}
+body.dark-theme::-webkit-scrollbar-thumb:hover {
+    background: #64748b !important;
+}
+/* ---------- INTERNAL SCROLLBARS ---------- */
+body.dark-theme .skill-list::-webkit-scrollbar,
+body.dark-theme .course-table::-webkit-scrollbar,
+body.dark-theme .recommendation-table::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+body.dark-theme .skill-list::-webkit-scrollbar-track,
+body.dark-theme .course-table::-webkit-scrollbar-track,
+body.dark-theme .recommendation-table::-webkit-scrollbar-track {
+    background: #1e293b !important;
+}
+body.dark-theme .skill-list::-webkit-scrollbar-thumb,
+body.dark-theme .course-table::-webkit-scrollbar-thumb,
+body.dark-theme .recommendation-table::-webkit-scrollbar-thumb {
+    background: #64748b !important;
+    border-radius: 8px !important;
+}
+/* ---------- STRONG / BOLD TEXT ---------- */
+body.dark-theme strong,
+body.dark-theme b {
+    color: #f8fafc !important;
+}
