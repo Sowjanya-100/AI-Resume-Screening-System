@@ -223,7 +223,7 @@ AI-Resume-Screening-System/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/AI-Resume-Screening-System.git
+git clone https://github.com/Sowjanya-100/AI-Resume-Screening-System.git
 ```
 
 ### 2. Open the project
