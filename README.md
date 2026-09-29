@@ -19,7 +19,14 @@ This project provides a simple web interface where users can:
 * Identify matched and missing skills
 * View resume-to-job-description similarity
 * Generate downloadable PDF reports
+---
+## 🌐 Live Demo
 
+Try the deployed application:
+
+**[AI Resume Screening System — Live Demo]([YOUR_RENDER_URL](https://ai-resume-screening-system-n5ys.onrender.com))**
+
+> Note: The application is hosted on Render's Free plan, so the first request after a period of inactivity may take some time while the service starts.
 ---
 
 ## ✨ Key Features
