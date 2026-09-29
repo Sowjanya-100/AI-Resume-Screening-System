@@ -24,7 +24,7 @@ This project provides a simple web interface where users can:
 
 Try the deployed application:
 
-**[AI Resume Screening System — Live Demo]([(https://ai-resume-screening-system-n5ys.onrender.com)])**
+**[AI Resume Screening System — Live Demo](https://ai-resume-screening-system-n5ys.onrender.com)**
 
 > Note: The application is hosted on Render's Free plan, so the first request after a period of inactivity may take some time while the service starts.
 ---
